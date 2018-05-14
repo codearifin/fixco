@@ -1337,7 +1337,7 @@
 				echo '<div class="grid-child n-768-1per2">
                         <div class="blog-child">
                             <div class="ngc-media">
-                                <a href="blog-detail/'.$category[$row['id_blog_category']].'/'.$row['blog_url'].'">
+                                <a href="'.$GLOBALS['SITE_URL'].'blog-detail/'.$category[$row['id_blog_category']].'/'.$row['blog_url'].'">
                                     <img src="'.$GLOBALS['UPLOAD_FOLDER'].$row['image'].'" alt="'.$row['header'].'" class="lazyload" data-expand="-10">
                                     <span class="blog-date">
                                         <span class="large">'.date("d",strtotime($row['post_date'])).'</span>
@@ -1347,7 +1347,7 @@
                             </div><!-- .ngc-media -->
                             <div class="ngc-text">
                                 <h3 class="ngc-title">
-                                    <a href="blog-detail/'.$category[$row['id_blog_category']].'/'.$row['blog_url'].'">
+                                    <a href="'.$GLOBALS['SITE_URL'].'blog-detail/'.$category[$row['id_blog_category']].'/'.$row['blog_url'].'">
                                         '.$row['header'].'
                                     </a>
                                 </h3>';
@@ -1356,7 +1356,7 @@
                         	echo $temp_desc[$i] . ". ";
                         }
                         echo '</p>';
-                        echo   '<a href="blog-detail/'.$category[$row['id_blog_category']].'/'.$row['blog_url'].'" class="read-more">Read More <span class="fa fa-angle-right"></span></a>
+                        echo   '<a href="'.$GLOBALS['SITE_URL'].'blog-detail/'.$category[$row['id_blog_category']].'/'.$row['blog_url'].'" class="read-more">Read More <span class="fa fa-angle-right"></span></a>
                             </div><!-- .ngc-text -->
                         </div><!-- .blog-child -->
                     </div><!-- .grid-child -->';
@@ -4796,7 +4796,7 @@
 				echo '<div class="grid-child n-768-1per2">
                         <div class="blog-child">
                             <div class="ngc-media">
-                                <a href="blog-detail/'.$category_name.'/'.$row['blog_url'].'">
+                                <a href="'.$GLOBALS['SITE_URL'].'blog-detail/'.$category_name.'/'.$row['blog_url'].'">
                                     <img src="'.$GLOBALS['UPLOAD_FOLDER'].$row['image'].'" alt="'.$row['header'].'" class="lazyload" data-expand="-10">
                                     <span class="blog-date">
                                         <span class="large">'.date("d",strtotime($row['post_date'])).'</span>
@@ -4806,7 +4806,7 @@
                             </div><!-- .ngc-media -->
                             <div class="ngc-text">
                                 <h3 class="ngc-title">
-                                    <a href="blog-detail/'.$category_name.'/'.$row['blog_url'].'">
+                                    <a href="'.$GLOBALS['SITE_URL'].'blog-detail/'.$category_name.'/'.$row['blog_url'].'">
                                         '.$row['header'].'
                                     </a>
                                 </h3>';
@@ -4815,7 +4815,7 @@
                         	echo $temp_desc[$i] . ". ";
                         }
                         echo '</p>';
-                        echo   '<a href="blog-detail/'.$category_name.'/'.$row['blog_url'].'" class="read-more">Read More <span class="fa fa-angle-right"></span></a>
+                        echo   '<a href="'.$GLOBALS['SITE_URL'].'blog-detail/'.$category_name.'/'.$row['blog_url'].'" class="read-more">Read More <span class="fa fa-angle-right"></span></a>
                             </div><!-- .ngc-text -->
                         </div><!-- .blog-child -->
                     </div><!-- .grid-child -->';
@@ -4903,10 +4903,10 @@
 
 	function blogdetail($category,$url){
 		global $db;
-		$query = $db->query("SELECT `header`,`description`,`image_header`,`post_date` FROM `blog_detail` WHERE `publish` = 1 AND `blog_url` = '$url'") or die($db->error);
+		$query = $db->query("SELECT `header`,`description`,`image_header`,`post_date`,`youtube_link` FROM `blog_detail` WHERE `publish` = 1 AND `blog_url` = '$url'") or die($db->error);
 		$jumpage = $query->num_rows;
 
-		if(jumpage>0):
+		if($jumpage>0):
 			while($row = $query->fetch_assoc()):
 				echo '<div class="max-970 blog-detail">
 		                <div class="ngc-media">
@@ -4926,14 +4926,66 @@
 		                </div><!-- .blog-meta -->
 		                <div class="nuke-wysiwyg">
 		                    '.$row['description'].'
-		                <br />
-		                <div class="video-container">
-		                        <iframe width="560" height="315" src="https://www.youtube.com/embed/upqgnYpfKY0" frameborder="0" allowfullscreen></iframe>
-		                    </div><!-- .video-container -->
-		                </div><!-- .news-detail -->
+		                <br />';
+		                if($row['youtube_link'] != ""):
+		                echo '<div class="video-container">
+		                        <iframe width="560" height="315" src="'.$row['youtube_link'].'" frameborder="0" allowfullscreen></iframe>
+		                    </div><!-- .video-container -->';
+		                endif;
+		            echo '</div><!-- .news-detail -->
 		            </div><!-- .max-970 -->';
 			endwhile;
 		endif;
 	}
+
+	function relatedblog($category,$url){
+		global $db;
+		$id_blog_cat;
+		$description = Array();
+		$query_cat = $db->query("SELECT `id` FROM `blog_category` WHERE `publish` = 1 AND `category_name` = '$category'") or die($db->error);
+		$jumpage_cat = $query_cat->num_rows;
+
+		if($jumpage_cat>0):
+			while($row = $query_cat->fetch_assoc()):
+				$id_blog_cat = $row['id'];
+			endwhile;
+		endif;
+
+		$query = $db->query("SELECT `header`,`description`,`image`,`post_date`,`blog_url` FROM `blog_detail` WHERE `publish` = 1 AND `blog_url` != '$url' AND `id_blog_category` = $id_blog_cat") or die($db->error);
+		$jumpage = $query->num_rows;
+
+		if($jumpage>0):
+			while($row = $query->fetch_assoc()):
+				$description = explode(".", $row['description']);
+		        echo '<div class="item">
+                            <div class="blog-child">
+                                <div class="ngc-media">
+                                    <a href="'.$GLOBALS['SITE_URL'].'/blog-detail/'.$category.'/'.$row['blog_url'].'">
+                                        <img src="'.$GLOBALS['UPLOAD_FOLDER'].'/'.$row['image'].'" alt="BLOG TITLE HERE" class="lazyload" data-expand="-10">
+                                        <span class="blog-date">
+                                            <span class="large">'.date("d",strtotime($row['post_date'])).'</span>
+                                            '.date("M",strtotime($row['post_date'])).'
+                                        </span>
+                                    </a>
+                                </div><!-- .ngc-media -->
+                                <div class="ngc-text">
+                                    <h3 class="ngc-title">
+                                        <a href="'.$GLOBALS['SITE_URL'].'/blog-detail/'.$category.'/'.$row['blog_url'].'">
+                                            '.$row['header'].'
+                                        </a>
+                                    </h3>
+                                    <p>';
+                                    for ($i=0; $i < 3 ; $i++) { 
+                                    	echo $description[$i];
+                                    }
+                            echo 	'</p>
+                                    <a href="'.$GLOBALS['SITE_URL'].'/blog-detail/'.$category.'/'.$row['blog_url'].'" class="read-more">Read More <span class="fa fa-angle-right"></span></a>
+                                </div><!-- .ngc-text -->
+                            </div><!-- .blog-child -->
+                        </div><!-- .item -->';
+			endwhile;
+		endif;
+	}
+
 	
 ?>

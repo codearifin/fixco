@@ -10,6 +10,7 @@ if(isset($_GET['blogurl'])){
 }else{
     $url = "";
 }
+
 ?>
 </head>
 
@@ -21,8 +22,8 @@ if(isset($_GET['blogurl'])){
 	<div class="container">
     	<div class="row">
         	<ul class="breadcrumbs">
-            	<li class="first"><a href="index.php" class="bc-home">Home</a></li>
-                <li><a href="blog.php">News</a></li>
+            	<li class="first"><a href="<?php echo $GLOBALS['SITE_URL']; ?>" class="bc-home">Home</a></li>
+                <li><a href="<?php echo $GLOBALS['SITE_URL'].'blog/'.$category; ?>"><?php echo $category; ?></a></li>
                 <li class="f-pb">Detail</li>
             </ul><!-- .breadcrumbs -->
         </div><!-- .row -->
@@ -36,97 +37,10 @@ if(isset($_GET['blogurl'])){
             <?php blogdetail($category,$url); ?>
 
             <div class="related-blog-wrap">
-                <h2 class="ngc-maintitle">Related News</h2>
+                <h2 class="ngc-maintitle">Related <?php echo $category; ?></h2>
                 <div class="related-blog">
                     <div class="related-blog-carousel">
-                        <div class="item">
-                            <div class="blog-child">
-                                <div class="ngc-media">
-                                    <a href="blog-detail.php">
-                                        <img src="images/blog/thumb-1.jpg" alt="BLOG TITLE HERE" class="lazyload" data-expand="-10">
-                                        <span class="blog-date">
-                                            <span class="large">21</span>
-                                            MAY
-                                        </span>
-                                    </a>
-                                </div><!-- .ngc-media -->
-                                <div class="ngc-text">
-                                    <h3 class="ngc-title">
-                                        <a href="blog-detail.php">
-                                            In Hac Habitasse Platea Dictumst Vivamus
-                                        </a>
-                                    </h3>
-                                    <p>In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam. Integer et elit eget volutpat aliquam.</p>
-                                    <a href="blog-detail.php" class="read-more">Read More <span class="fa fa-angle-right"></span></a>
-                                </div><!-- .ngc-text -->
-                            </div><!-- .blog-child -->
-                        </div><!-- .item -->
-                        <div class="item">
-                            <div class="blog-child">
-                                <div class="ngc-media">
-                                    <a href="blog-detail.php">
-                                        <img src="images/blog/thumb-2.jpg" alt="BLOG TITLE HERE" class="lazyload" data-expand="-10">
-                                        <span class="blog-date">
-                                            <span class="large">28</span>
-                                            APR
-                                        </span>
-                                    </a>
-                                </div><!-- .ngc-media -->
-                                <div class="ngc-text">
-                                    <h3 class="ngc-title">
-                                        <a href="blog-detail.php">
-                                            Nam Porttitor Blandit Accumsan Ut vel di
-                                        </a>
-                                    </h3>
-                                    <p>In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam. Integer et elit eget elit facilisis.</p>
-                                    <a href="blog-detail.php" class="read-more">Read More <span class="fa fa-angle-right"></span></a>
-                                </div><!-- .ngc-text -->
-                            </div><!-- .blog-child -->
-                        </div><!-- .item -->
-                        <div class="item">
-                            <div class="blog-child">
-                                <div class="ngc-media">
-                                    <a href="blog-detail.php">
-                                        <img src="images/blog/thumb-3.jpg" alt="BLOG TITLE HERE" class="lazyload" data-expand="-10">
-                                        <span class="blog-date">
-                                            <span class="large">21</span>
-                                            MAY
-                                        </span>
-                                    </a>
-                                </div><!-- .ngc-media -->
-                                <div class="ngc-text">
-                                    <h3 class="ngc-title">
-                                        <a href="blog-detail.php">
-                                            In Hac Habitasse Platea Dictumst Vivamus
-                                        </a>
-                                    </h3>
-                                    <p>In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam. Integer et elit eget volutpat aliquam.</p>
-                                    <a href="blog-detail.php" class="read-more">Read More <span class="fa fa-angle-right"></span></a>
-                                </div><!-- .ngc-text -->
-                            </div><!-- .blog-child -->
-                        </div><!-- .item -->
-                        <div class="item">
-                            <div class="blog-child">
-                                <div class="ngc-media">
-                                    <a href="blog-detail.php">
-                                        <img src="images/blog/thumb-4.jpg" alt="BLOG TITLE HERE" class="lazyload" data-expand="-10">
-                                        <span class="blog-date">
-                                            <span class="large">28</span>
-                                            APR
-                                        </span>
-                                    </a>
-                                </div><!-- .ngc-media -->
-                                <div class="ngc-text">
-                                    <h3 class="ngc-title">
-                                        <a href="blog-detail.php">
-                                            Nam Porttitor Blandit Accumsan Ut vel di
-                                        </a>
-                                    </h3>
-                                    <p>In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam. Integer et elit eget elit facilisis.</p>
-                                    <a href="blog-detail.php" class="read-more">Read More <span class="fa fa-angle-right"></span></a>
-                                </div><!-- .ngc-text -->
-                            </div><!-- .blog-child -->
-                        </div><!-- .item -->
+                        <?php relatedblog($category,$url); ?>
                     </div><!-- .related-blog-carousel -->
                 </div><!-- .related-blog -->
             </div><!-- .related-blog-wrap -->
