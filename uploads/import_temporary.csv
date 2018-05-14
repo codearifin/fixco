@@ -1,0 +1,68 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
+--
+-- Anamakine: 127.0.0.1
+-- Üretim Zamanı: 08 May 2017, 03:52:23
+-- Sunucu sürümü: 10.1.21-MariaDB
+-- PHP Sürümü: 5.6.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Veritabanı: `fixcomart`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `1001ti14_vi3w2014`
+--
+
+CREATE TABLE `1001ti14_vi3w2014` (
+  `id` mediumint(3) NOT NULL,
+  `A10010289` varbinary(100) NOT NULL,
+  `B10010289` varbinary(100) NOT NULL,
+  `C10010289` varbinary(100) NOT NULL,
+  `user_badgedame` varchar(200) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `id_master_privilege` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `1001ti14_vi3w2014`
+--
+
+INSERT INTO `1001ti14_vi3w2014` (`id`, `A10010289`, `B10010289`, `C10010289`, `user_badgedame`, `id_master_privilege`) VALUES
+(1, 0xc0b67b25a8ec5f036586c23cc56410ac19c19e7b7011beea93f958d3b16ce8946392c626008627f2191049b2d18d2b2b, 0x2adc270ae3e0b7082bb8731b3f5349976404010d82dbc6671e79040484af4d92c6fb8b3c2e7531946a053e838b15243e, 0x299cc1ef8966bd9c3494d84fbeee73fe, 'Superadmin', 0),
+(2, 0x891c84e772ef230772d85473c62c14c87a3aeca05312e2d743c8c94bbcf00c7f003573f009743dcb53a20b17496c0c11, 0x2adc270ae3e0b7082bb8731b3f5349976404010d82dbc6671e79040484af4d92c6fb8b3c2e7531946a053e838b15243e, 0x4d2506a0036e7224eec7ad4860dde5ec, 'Ranto Lim', 26),
+(3, 0x615533e410cc11098fc3b277ca5d99edd7aba90cabec67e4739484c8403e4798aa57d951bd7f436fffd43e6b554d72e4, 0x61a09b2001f128157b3dffbee220b36c53ea690e3a9acfe2ba46ba6c488a44cffaa41553176992e140dd63ab52634305, 0x2a61a586076900879a6b7563854c3b48, 'mastek', 26);
+
+--
+-- Dökümü yapılmış tablolar için indeksler
+--
+
+--
+-- Tablo için indeksler `1001ti14_vi3w2014`
+--
+ALTER TABLE `1001ti14_vi3w2014`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
+--
+
+--
+-- Tablo için AUTO_INCREMENT değeri `1001ti14_vi3w2014`
+--
+ALTER TABLE `1001ti14_vi3w2014`
+  MODIFY `id` mediumint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,56 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body, input, select, textarea {font-family: 'Roboto', sans-serif; font-weight:400;}
+body, input, select, textarea {font-size:12px;}
+
+a {text-decoration:none;}
+.left {float:left;}
+.right {float:right;}
+
+.submit-btn {cursor:pointer;}
+
+a, a:hover, .submit-btn, .submit-btn:hover {
+transition: all 200ms ease-in-out;
+-webkit-transition: all 200ms ease-in-out;
+-moz-transition: all 200ms ease-in-out;
+-o-transition: all 200ms ease-in-out;}
+
+/* >> The Magnificent CLEARFIX << */
+
+.clearfix:after { 
+  content: "."; 
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden; 
+}
+.clearfix { 
+  display: inline-block;  
+}
+* html .clearfix {  
+  height: 1%;  
+} /* Hides from IE-mac \*/
+.clearfix {  
+  display: block;  
+}
+
+#login-area {width:390px; margin:0 auto; padding-top:200px;}
+#login-top {position:relative;}
+#login-top .cms-logo {position:absolute; right:0; bottom:14px;}
+#login-top .client-logo {position:absolute; left:0; bottom:10px; max-width:150px; background:#fff; padding:5px 10px 5px 10px;} /* EDIT LOGO RNT */
+#login-mid {border:1px solid #d1d1d1; padding:60px 94px;}
+#login-footer {font-size:10px; text-align:center; color:#9c9c9c; padding-top:12px;}
+#login-footer a {color:#9c9c9c;}
+#login-footer a:hover {color:#0095d3;}
+
+.login-form {}
+.login-form input.i-normal {color:#5c5c5c; width:153px; border:none; height:34px; margin-bottom:10px; padding:0 40px 0 9px;}
+.login-form input.i-user {background:url(../images/icon/l-username.png) no-repeat 171px center #efefef;}
+.login-form input.i-pass {background:url(../images/icon/l-password.png) no-repeat 173px center #efefef;}
+.login-form input.submit-btn {border:none; height:35px; width:35px; text-indent:-9999px; background:url(../images/centang-submit.png) no-repeat center top;}
+.login-form input.submit-btn:hover {background:url(../images/centang-submit.png) no-repeat center bottom;}
+.login-btn {padding-top:18px; width:100%;}
+a.f-pass {color:#c8c8c8; font-style:italic; line-height:35px;}
+a.f-pass:hover {color:#0095d3;}
+.wrap-error { font-size:11px; color:#FF3300; line-height:1.5em;}

@@ -1,0 +1,22 @@
+[21-Jun-2017 08:24:30 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ngcdemo/public_html/fixcomart/kredivo/notification.php on line 68
+[21-Jun-2017 08:37:18 UTC] PHP Fatal error:  Call to a member function fetch_assoc() on null in /home/ngcdemo/public_html/fixcomart/kredivo/notification.php on line 39
+[21-Jun-2017 08:41:58 UTC] PHP Warning:  mysqli::query(): Empty query in /home/ngcdemo/public_html/fixcomart/kredivo/notification.php on line 39
+[21-Jun-2017 08:44:42 UTC] PHP Warning:  mysqli::query(): Empty query in /home/ngcdemo/public_html/fixcomart/kredivo/notification.php on line 41
+[21-Jun-2017 08:47:10 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/ngcdemo/public_html/fixcomart/kredivo/notification.php on line 67
+[09-Aug-2017 07:52:10 UTC] PHP Parse error:  syntax error, unexpected ':' in /home/ngcdemo/public_html/fixcomart/kredivo/notification.php on line 86
+[09-Aug-2017 07:52:12 UTC] PHP Parse error:  syntax error, unexpected ':' in /home/ngcdemo/public_html/fixcomart/kredivo/notification.php on line 86
+[09-Aug-2017 08:09:38 UTC] PHP Parse error:  syntax error, unexpected ':' in /home/ngcdemo/public_html/fixcomart/kredivo/notification.php on line 84
+[09-Aug-2017 08:29:59 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ngcdemo/public_html/fixcomart/kredivo/index-kredivo.php on line 196
+[09-Aug-2017 08:31:59 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ngcdemo/public_html/fixcomart/kredivo/index-kredivo.php on line 196
+[10-Aug-2017 02:29:24 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ngcdemo/public_html/fixcomart/kredivo/index-kredivo.php on line 196
+[10-Aug-2017 06:46:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ngcdemo/public_html/fixcomart/kredivo/index-kredivo.php on line 196
+[10-Aug-2017 06:48:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ngcdemo/public_html/fixcomart/kredivo/index-kredivo.php on line 196
+[10-Aug-2017 07:14:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ngcdemo/public_html/fixcomart/kredivo/index-kredivo.php on line 196
+[10-Aug-2017 08:39:28 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ngcdemo/public_html/fixcomart/kredivo/index-kredivo.php:422) in /home/ngcdemo/public_html/fixcomart/kredivo/index-kredivo.php on line 433
+[10-Aug-2017 09:27:20 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ngcdemo/public_html/fixcomart/kredivo/index-kredivo.php on line 196
+[10-Aug-2017 09:47:32 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/ngcdemo/public_html/fixcomart/kredivo/index-kredivo.php on line 230
+[10-Aug-2017 09:48:49 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/ngcdemo/public_html/fixcomart/kredivo/index-kredivo.php on line 230
+[10-Aug-2017 09:50:07 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/ngcdemo/public_html/fixcomart/kredivo/index-kredivo.php on line 230
+[10-Aug-2017 09:59:02 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/ngcdemo/public_html/fixcomart/kredivo/index-kredivo.php on line 230
+[10-Aug-2017 10:04:08 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/ngcdemo/public_html/fixcomart/kredivo/index-kredivo.php on line 230
+[10-Aug-2017 10:04:53 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/ngcdemo/public_html/fixcomart/kredivo/index-kredivo.php on line 230

@@ -1,0 +1,251 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+#RewriteRule ^$ 								berightback.php
+RewriteRule ^$ 								index.php
+RewriteRule ^index/?$ 							 index.php
+
+RewriteRule ^about/?$ 							 about.php
+RewriteRule ^partner/?$ 						 partner.php
+RewriteRule ^client/?$ 						 	 client.php
+RewriteRule ^cara-pembelian/?$ 				     cara-pembelian.php
+RewriteRule ^metode-pembayaran/?$ 				 metode-pembayaran.php
+RewriteRule ^pengiriman-produk/?$ 			     pengiriman-produk.php
+RewriteRule ^pengembalian-produk/?$ 			 pengembalian-produk.php
+RewriteRule ^syarat-dan-ketentuan/?$ 			 syarat-dan-ketentuan.php
+RewriteRule ^syarat-dan-ketentuan-membership/?$  syarat-dan-ketentuan-membership.php
+RewriteRule ^syarat-dan-ketentuan-redeem/?$  	 syarat-dan-ketentuan-redeem.php
+RewriteRule ^faq/?$ 			 				 faq.php
+RewriteRule ^contact/?$ 			 			 contact.php
+RewriteRule ^do-contact/?$ 			 			 include/do-contact.php
+RewriteRule ^corporate-member/?$ 				 corporate-member.php
+RewriteRule ^diskon-deposit/?$ 					 diskon-deposit.php
+RewriteRule ^warranty/?$ 			 			 warranty.php
+RewriteRule ^other/?$ 			 			 	 other.php
+RewriteRule ^multiple-user/?$ 			 		 multiple-user.php
+RewriteRule ^late-payment/?$ 			 		 late-payment.php
+RewriteRule ^do-newsletter/?$ 					 include/do-newsletter.php
+RewriteRule ^join-corporate-member/?$ 			 join-corporate-member.php
+
+
+#product list category view
+RewriteRule ^product-category/([^/]*)/([^/]*)/?$	 				product-category.php?namekat=$1&idkat=$2
+RewriteRule ^product-subcategory/([^/]*)/([^/]*)/?$	 				product-subcategory.php?namesubkat=$1&idsubkat=$2
+
+#product list
+RewriteRule ^product/?$ 											product-list.php
+RewriteRule ^product/([^/]*)/?$ 									product-list.php?halaman=$1
+RewriteRule ^product-list-category/([^/]*)/([^/]*)/?$	 			product-list.php?namekat=$1&idkat=$2
+RewriteRule ^product-list-category/([^/]*)/([^/]*)/([^/]*)/?$	 	product-list.php?namekat=$1&idkat=$2&halaman=$3
+RewriteRule ^product-list-subcategory/([^/]*)/([^/]*)/?$	 		product-list.php?namesubkat=$1&idsubkat=$2
+RewriteRule ^product-list-subcategory/([^/]*)/([^/]*)/([^/]*)/?$	product-list.php?namesubkat=$1&idsubkat=$2&halaman=$3
+RewriteRule ^product-list-sublevel/([^/]*)/([^/]*)/?$	 			product-list.php?namesublevel=$1&idsublevel=$2
+RewriteRule ^product-list-sublevel/([^/]*)/([^/]*)/([^/]*)/?$		product-list.php?namesublevel=$1&idsublevel=$2&halaman=$3
+
+#modif seacrh---
+RewriteRule ^do-search-product/?$ 					     			do-search-product.php
+RewriteRule ^product-search/([^/]*)/([^/]*)/?$ 			    		product-list.php?keyword=$1&sidsubkat=$2
+RewriteRule ^product-search/([^/]*)/([^/]*)/([^/]*)/?$				product-list.php?keyword=$1&sidsubkat=$2&halaman=$3
+#modif seacrh---
+
+#new product search
+RewriteRule ^search-product-result/([^/]*)/?$ 			    		product-list.php?sidsubkat=$1
+RewriteRule ^search-product-result/([^/]*)/([^/]*)/?$				product-list.php?sidsubkat=$1&halaman=$2
+
+
+#product detail
+RewriteRule ^product-detail/([^/]*)/([^/]*)/?$	 					product-detail.php?nameprod=$1&idprod=$2
+RewriteRule ^do-insertdata-ulasan/?$ 			 			 		include/do-insertdata-ulasan.php
+RewriteRule ^compare-product/?$ 									compare-product.php
+
+#blog detail
+RewriteRule ^blog/?$												blog.php
+RewriteRule ^blog/([^/]*)/?$	 									blog.php?category=$1
+RewriteRule ^blog/([^/]*)/([^/]*)/?$	 							blog.php?category=$1&page=$2
+RewriteRule ^blog-detail/([^/]*)/([^/]*)/?$							blog-detail.php?category=$1&blogurl=$2
+
+
+#member page
+RewriteRule ^register/?$ 					 	 register.php
+RewriteRule ^do-register/?$ 					 include/do-register.php
+RewriteRule ^reset-password/?$ 					 popup-reset-password.php
+RewriteRule ^do-reset-password/?$ 				 include/do-reset-password.php
+
+#login module
+RewriteRule ^login/?$ 					 		 popup-login-member.php
+RewriteRule ^do-login/?$ 					 	 include/do-login.php
+RewriteRule ^login-order/?$ 					 popup-login.php
+RewriteRule ^do-login-order/?$				 	 include/do-login-order.php
+
+RewriteRule ^login-corporate/?$ 			     popup-login-member-corporate.php
+RewriteRule ^do-login-corporate/?$ 				 include/do-login-corporate.php
+RewriteRule ^do-login-corporate-order/?$ 		 include/do-login-corporate-order.php
+
+#login google plus
+RewriteRule ^register/google-plus/?$ 			 login_google/register-google.php
+
+#login facebook
+RewriteRule ^register/facebook/?$ 				 login_facebookII/register-facebook.php
+
+#new login facebook
+#RewriteRule ^register/facebook/?$ 				 facebook_login/fb-callback.php
+#RewriteRule ^login-via-facebook/?$ 				 facebook_login/login.php
+
+#new login review
+RewriteRule ^login-review-product/?$ 		       popup-login-review-product.php
+RewriteRule ^do-login-review-product/?$			   include/do-login-backtopage.php
+
+RewriteRule ^login-corporate-review-product/?$ 	  	popup-login-member-corporate-review-product.php
+RewriteRule ^do-login-corporate-review-product/?$ 	include/do-login-corporate-review-product.php
+
+
+
+#shopping cart
+RewriteRule ^shopping-cart/?$ 					 cart.php
+RewriteRule ^finishorder/?$ 					 checkout.php
+#address checkout
+RewriteRule ^add-new-address-checkout/?$ 	 	 add-new-address-checkout.php
+RewriteRule ^do-add-address-book-checkout/?$ 	 include/do-add-address-book-checkout.php
+RewriteRule ^edit-address-checkout/([^/]*)/?$	 edit-address-checkout.php?id=$1
+RewriteRule ^do-edit-address-book-checkout/?$ 	 include/do-edit-address-book-checkout.php
+#save order
+RewriteRule ^saveorder/?$ 					     include/saveorder.php
+RewriteRule ^order-confirmation/([^/]*)/?$ 		 order-complete.php?tokenpay=$1
+RewriteRule ^payment-confirmation-popup/?$ 		 popup-confirm-payment.php
+RewriteRule ^do-payment-confirmation/?$ 		 include/do-payment-confirmation.php
+RewriteRule ^payment-confirmation/?$ 			 payment-confirmation.php
+RewriteRule ^logout/?$ 							 logout.php
+
+#shopping cart II
+RewriteRule ^finishorder-corporate/?$ 			 			 checkout-corporate.php
+RewriteRule ^add-new-address-checkout-corporate/?$ 	 	 	 add-new-address-checkout-corporate.php
+RewriteRule ^do-add-address-book-checkout-corporate/?$ 	 	 include/do-add-address-book-checkout-corporate.php
+RewriteRule ^edit-address-checkout-corporate/([^/]*)/?$	 	 edit-address-checkout-corporate.php?id=$1
+RewriteRule ^do-edit-address-book-checkout-corporate/?$ 	 include/do-edit-address-book-checkout-corporate.php
+RewriteRule ^saveorder-corporate/?$ 					     include/saveorder-corporate.php
+RewriteRule ^order-confirmation-corporate/([^/]*)/?$ 		 order-complete-corporate.php?tokenpay=$1
+
+
+
+
+#member regular account
+RewriteRule ^my-account/?$ 								my-account.php
+RewriteRule ^my-account/([^/]*)/?$ 						my-account.php?act=$1
+RewriteRule ^do-update-profile/?$ 						include/do-update-profile.php
+RewriteRule ^change-password/?$ 						change-password.php
+RewriteRule ^do-change-password/?$ 						include/do-change-password.php
+RewriteRule ^address-book/?$ 							address-book.php
+RewriteRule ^add-new-addres/?$ 	 						add-new-addres.php
+RewriteRule ^do-add-new-addres/?$ 	 					include/do-add-new-addres.php
+RewriteRule ^edit-address/([^/]*)/?$	 				edit-address.php?id=$1
+RewriteRule ^do-edit-address-book/?$ 	 		 		include/do-edit-address-book.php
+RewriteRule ^delete-address/([^/]*)/?$		 	 		include/delete-address.php?id=$1
+RewriteRule ^order-history/?$ 					 		order-history.php
+RewriteRule ^order-detail/([^/]*)/?$			 		order-detail.php?code=$1
+RewriteRule ^cancel-order/([^/]*)/?$				    include/cancel-order.php?code=$1
+RewriteRule ^track-order/?$ 							popup-check-status.php
+RewriteRule ^upgrade-membership/?$ 				 		upgrade-membership.php
+RewriteRule ^do-upgrade-membership/?$ 			 		include/do-upgrade-membership.php
+RewriteRule ^membership-payment/?$ 						topup-deposit.php
+RewriteRule ^do-topup-membership/?$ 					include/do-topup-membership.php
+RewriteRule ^do-edit-membership/?$ 			 	 		include/do-edit-membership.php
+RewriteRule ^point-reward/?$ 							point-reward.php
+RewriteRule ^point-reward/([^/]*)/?$ 					point-reward.php?halaman=$1
+RewriteRule ^redeem-point/?$ 							redeem-point.php
+RewriteRule ^redeem-point/([^/]*)/?$ 					redeem-point.php?halaman=$1
+RewriteRule ^product-redeem-detail/([^/]*)/([^/]*)/?$	product-redeem-detail.php?nameprod=$1&idprod=$2
+RewriteRule ^konfirmasi-redeem/([^/]*)/([^/]*)/?$	 	konfirmasi-redeem.php?nameprod=$1&idprod=$2
+RewriteRule ^add-new-addres-redeem/?$ 	 				add-new-addres-redeem.php
+RewriteRule ^do-add-new-addres-redeem/?$ 	 			include/do-add-new-addres-redeem.php
+RewriteRule ^do-savedataredeem/?$ 			 	 	 	include/do_savedataredeem.php
+RewriteRule ^redeem-history/?$ 							redeem-history.php
+RewriteRule ^redeem-detail/([^/]*)/?$ 					redeem-detail.php?tokencode=$1
+RewriteRule ^redeem-success/([^/]*)/?$ 					redeem-success.php?tokencode=$1
+RewriteRule ^affiliate/?$ 								affiliate.php
+RewriteRule ^affiliate-member/?$ 						affiliate-member.php
+RewriteRule ^affiliate-commission/?$ 					affiliate-commission.php
+RewriteRule ^commission-withdrawal/?$ 					commission-withdrawal.php
+RewriteRule ^do-claim-bonus/?$ 							include/do-claim-bonus.php
+
+#member coorporate
+RewriteRule ^register-corporate/?$ 					 	 register-corporate.php
+RewriteRule ^do-register-corporate/?$ 					 include/do-register-corporate.php
+RewriteRule ^popup-reset-password-corporate/?$ 			 popup-reset-password-corporate.php
+RewriteRule ^do-reset-password-corporate/?$ 			 include/do-reset-password-corporate.php
+
+#my account corporate
+RewriteRule ^my-account-corporate/?$ 					 my-account-corporate.php
+RewriteRule ^my-account-corporate/([^/]*)/?$ 			 my-account-corporate.php?act=$1
+RewriteRule ^change-password-corporate/?$ 				 change-password-corporate.php
+RewriteRule ^do-change-password-corporate/?$ 			 include/do-change-password-corporate.php
+RewriteRule ^do-update-profile-corporate/?$ 			 include/do-update-profile-corporate.php
+RewriteRule ^address-book-corporate/?$ 					 address-book-corporate.php
+RewriteRule ^add-new-addres-corporate/?$ 	 			 add-new-addres-corporate.php
+RewriteRule ^do-add-new-addres-corporate/?$ 	 		 include/do-add-new-addres-corporate.php
+RewriteRule ^edit-address-corporate/([^/]*)/?$	 		 edit-address-corporate.php?id=$1
+RewriteRule ^do-edit-address-book-corporate/?$ 	 		 include/do-edit-address-book-corporate.php
+RewriteRule ^delete-address-corporate/([^/]*)/?$		 include/delete-address-corporate.php?id=$1
+RewriteRule ^user-management/?$ 						 user-management.php
+RewriteRule ^popup-add-new-user/?$ 						 popup-add-new-user.php
+RewriteRule ^do-save-new-user/?$ 						 include/do-save-new-user.php
+RewriteRule ^delete-user/([^/]*)/?$		 				 include/delete-user-corporate.php?id=$1
+RewriteRule ^popup-edit-user/([^/]*)/?$		 			 popup-edit-user.php?id=$1
+RewriteRule ^do-edit-user-corporate/?$ 					 include/do-edit-user-corporate.php
+RewriteRule ^change-password-user/([^/]*)/?$	 		 new-password.php?id=$1
+RewriteRule ^do-change-password-user/?$ 				 include/do-change-password-user.php
+RewriteRule ^deposit-corporate/?$ 						 deposit-corporate.php
+RewriteRule ^history-deposit/?$ 						 history-deposit.php
+RewriteRule ^konfirmasi-deposit/?$ 						 konfirmasi-deposit.php
+RewriteRule ^do-konfirmasi-deposit/?$ 					 include/do-konfirmasi-deposit.php
+RewriteRule ^payment-confirmation-corporate/?$ 			 payment-confirmation-corporate.php
+RewriteRule ^order-history-corporate/?$ 				 order-history-corporate.php
+RewriteRule ^draft-quotation/?$ 						 draft-quotation.php
+RewriteRule ^quotation-detail/([^/]*)/?$	 		 	 quotation-detail.php?token=$1
+RewriteRule ^print-quotation-list/([^/]*)/?$	 		 print-quotation-list.php?token=$1
+RewriteRule ^edit-quotation-list/([^/]*)/?$	 			 edit-quotation-list.php?token=$1
+RewriteRule ^add-more-produk/([^/]*)/?$	 				 add-more-produk.php?token=$1
+RewriteRule ^do-save-product-list/?$		 	 		 include/do-save-product-list.php
+RewriteRule ^delete-item-list/([^/]*)/([^/]*)/?$	 	 include/delete-item-list.php?idlist=$1&token=$2
+RewriteRule ^edit-item-list/([^/]*)/([^/]*)/?$	 		 edit-item-list.php?idlist=$1&token=$2
+RewriteRule ^do-edit-product-list/?$		 	 		 include/do-edit-product-list.php
+RewriteRule ^order-detail-corporate/([^/]*)/?$			 order-detail-corporate.php?code=$1
+RewriteRule ^cancel-order-corporate/([^/]*)/?$			 include/cancel-order-corporate.php?code=$1
+RewriteRule ^checkout-quotation-list/([^/]*)/?$			 include/checkout-quotation-list.php?code=$1
+
+
+#affiliate url
+RewriteRule ^affiliate/([^/]*)/?$ 					 	 affiliate-checkstatus.php?token=$1
+
+
+#veritrans
+RewriteRule ^veritrans-step2/?$ 				 		 veritrans/index.php
+RewriteRule ^confirmation-finish/?$				 		 payment-veritrans-success.php
+RewriteRule ^confirmation-error/?$						 payment-veritrans-error.php
+RewriteRule ^confirmation-back/?$						 payment-veritrans-back.php
+RewriteRule ^veritrans-notify/?$						 payment-veritrans-success-backend.php
+
+
+#BCA KlikPay
+RewriteRule ^bca-klikpay-step2/([^/]*)/?$				bca-klikpay-step2.php?codepay=$1
+RewriteRule ^bca-klikpay-confirmation/([^/]*)/?$		bca-klikpay-confirmation.php?codepay=$1
+
+#bca module
+#KlikPay
+RewriteRule ^klikpay-inquiry/?$ 						bca_klikpay/klikpay-inquiry.php
+RewriteRule ^klikpay-flag/?$ 							bca_klikpay/klikpay-flag.php
+
+#BNI CALLBACK
+RewriteRule ^bnicall-response/?$ 						bni_call/bni_call_response.php
+RewriteRule ^bnicall-va/?$ 								bni_call/contoh-create-va.php
+RewriteRule ^bni-ecollection-step2/([^/]*)/?$           bnicall_klikpay_step2.php?codepay=$1
+
+#kredivo
+RewriteRule ^pay-kredivo/?$ 							 kredivo/index-kredivo.php
+RewriteRule ^kredivo-notif/?$				 		 	 kredivo/notification.php
+RewriteRule ^kredivo-finish/?$				 		 	 payment-success-kredivo.php
+RewriteRule ^kredivo-step2/([^/]*)/?$           		 kredivo_step2.php?codepay=$1
+
+RewriteRule ^admin2015/?$ 					    		4dm1nPage2015/index.php
+
+AddType application/octet-stream .pdf 
+</IfModule>

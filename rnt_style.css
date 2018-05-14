@@ -1,0 +1,44 @@
+.txt-up { text-transform:uppercase;}
+.list-capcay { padding-top:25px!important;}
+#contact_formid span.error, #ratingproduct_list span.error, #register_form span.error, #login_formuid span.error, #reset_formuid span.error, #login_formuidPopup span.error { color:#FF3333; font-size:12px; display:block; padding-top:2px;}
+#addressbook_form span.error, #saveorder_formid span.error, #voucher_idform span.error, #konfirm_payformpop span.error, #konfirm_payform span.error, #edit_register_form span.error, #trackingorder_idform span.error, #member_shipuid span.error,
+#membership_topup span.error, #form_regis_drawal span.error, #register_formcoor span.error, #login_formuidcp span.error, #edit_register_formcrpporate span.error, #adduserUid span.error,
+#topupdepositUid span.error { color:#FF3333; font-size:12px; display:block; padding-top:5px;}
+.notfound { color:#FF3333; display:inline-block;  padding-top:10px; font-size:14px;}
+.notpricefound { font-size:14px!important;}
+.expiry-qoute { color:#FF3333; display:block;  padding-top:3px; font-size:14px;}
+.error-msg { background:#f3f3f3; padding:20px 20px 20px 20px; color:#006699; -moz-border-radius:10px; -webkit-border-radius:10px; -o-border-radius:10px; border-radius:10px;}
+.rnt-btn { font-size:12px; padding:7px 10px 7px 10px;}
+.soldoutbtn { background:#ccc; cursor:default;} .soldoutbtn:hover{ color:#fff;}
+.no_recordjcart {color:#FF3333; display:inline-block;  padding-top:10px; padding-left:2px; font-size:14px;}
+.jcartlistitem { line-height:1.5em;}
+.error-cart { background:#f5f75b; text-align:center; padding:10px 10px 10px 10px; font-size:14px; color:#0066CC; margin-top:20px; line-height:1.6em;}
+.kodevocher_alert { color:#FF3333; font-size:13px; padding-top:5px; line-height:1.5em;}
+.scb1-2 input { width:50px!important;}
+.error-msg-profile {background:#f5f75b; text-align:legf; padding:10px 10px 10px 10px; font-size:14px; color:#0066CC; margin-top:20px; line-height:1.6em; margin-bottom:10px;}
+.rntprodList { line-height:1.7em;}
+.order-stat { margin-bottom:15px!important;}
+.hasil_trackorder .error { padding-top:20px; font-size:14px; color:#FF3300; font-weight:600; line-height:1.6em;}
+.hasil_trackorder .success { padding-top:20px; font-size:14px; color:#009999; font-weight:600; line-height:1.6em;}
+.status_pay { display:block; padding-top:5px; color:#00CC33;}
+.status_pay2 { display:block; padding-top:5px; color:#FF3300;}
+.bg-expiry { background:#FF3333; color:#fff; padding:5px 4px 5px 8px; display:block; font-size:13px; width:130px!important;}
+.bg-expiry2 { background:#FF3333; color:#fff; padding:2px 4px 2px 8px; display:block; font-size:13px; width:130px!important;}
+
+.table-rnt thead tr td { background:#0066CC; padding:7px 5px 7px 5px; color:#fff; vertical-align:top;}
+.table-rnt tbody tr td { padding:5px 5px 5px 5px; color:#000; line-height:1.6em; vertical-align:top; border-bottom:1px solid #ccc; font-size:14px; color:#666;}
+a.red-link { color:#FF3333;}
+a.editlist { color:#006699;}
+span.sisa_payment { display:block; padding-top:10px; padding-bottom:10px; font-size:16px; color:#FF3333;}
+.notfoundadd {color:#FF3333;}
+#newsletteruidform span.error { color:#fff; display:block; padding-top:5px; font-size:12px;}
+.btn span.contactkami {
+  display: inline-block;
+  padding-left: 25px;
+  background-image: url(images/icon/icon-layanan.png);
+  background-position: left center;
+  background-size: 20px auto;
+  background-repeat: no-repeat!important;
+}
+
+span.error_voucherlist { color:#FF3333; font-size:13px;}

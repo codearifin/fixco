@@ -1,0 +1,156 @@
+[21-Jul-2017 10:37:28 Asia/Jakarta] PHP Fatal error:  Class 'BniHashing' not found in /home/ngcdemo/public_html/fixcomart/bnicall_klikpay_step2.php on line 42
+[21-Jul-2017 03:53:12 UTC] PHP Fatal error:  Call to undefined function get_content() in /home/ngcdemo/public_html/fixcomart/bnicall_klikpay_step2.php on line 55
+[09-Aug-2017 11:50:50 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ngcdemo/public_html/fixcomart/kredivo_step2.php:253) in /home/ngcdemo/public_html/fixcomart/kredivo_step2.php on line 279
+[09-Aug-2017 11:54:20 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ngcdemo/public_html/fixcomart/kredivo_step2.php:268) in /home/ngcdemo/public_html/fixcomart/kredivo_step2.php on line 279
+[09-Aug-2017 13:28:39 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ngcdemo/public_html/fixcomart/kredivo_step2.php:8) in /home/ngcdemo/public_html/fixcomart/kredivo_step2.php on line 277
+[09-Aug-2017 13:35:26 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ngcdemo/public_html/fixcomart/kredivo_step2.php:265) in /home/ngcdemo/public_html/fixcomart/kredivo_step2.php on line 279
+[09-Aug-2017 13:47:51 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ngcdemo/public_html/fixcomart/kredivo_step2.php:250) in /home/ngcdemo/public_html/fixcomart/kredivo_step2.php on line 279
+[09-Aug-2017 13:51:11 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ngcdemo/public_html/fixcomart/kredivo_step2.php:250) in /home/ngcdemo/public_html/fixcomart/kredivo_step2.php on line 279
+[09-Aug-2017 13:52:02 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ngcdemo/public_html/fixcomart/kredivo_step2.php:250) in /home/ngcdemo/public_html/fixcomart/kredivo_step2.php on line 279
+[09-Aug-2017 14:01:15 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ngcdemo/public_html/fixcomart/kredivo_step2.php:265) in /home/ngcdemo/public_html/fixcomart/kredivo_step2.php on line 279
+[09-Aug-2017 14:01:45 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ngcdemo/public_html/fixcomart/kredivo_step2.php:265) in /home/ngcdemo/public_html/fixcomart/kredivo_step2.php on line 279
+[09-Aug-2017 14:28:54 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ngcdemo/public_html/fixcomart/kredivo_step2.php:265) in /home/ngcdemo/public_html/fixcomart/kredivo_step2.php on line 279
+[09-Aug-2017 14:50:22 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ngcdemo/public_html/fixcomart/kredivo_step2.php:265) in /home/ngcdemo/public_html/fixcomart/kredivo_step2.php on line 279
+[10-Aug-2017 14:15:44 Asia/Jakarta] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ngcdemo/public_html/fixcomart/kredivo_step2.php:250) in /home/ngcdemo/public_html/fixcomart/kredivo_step2.php on line 281
+[04-May-2018 17:26:25 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/corporate-member.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:27:04 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/diskon-deposit.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:27:39 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/faq.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:28:10 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/other.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:28:31 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/other.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:28:36 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/product-detail.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:28:41 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/product-detail.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:29:11 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/popup-reset-password.php(5): include()
+#1 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:29:44 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/about.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:37:32 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/popup-login-member.php(5): include()
+#1 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:37:44 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/multiple-user.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:37:56 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/product-detail.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:38:23 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/join-corporate-member.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:38:51 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/product-detail.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:38:59 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/other.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:39:15 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/other.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:39:20 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/popup-reset-password-corporate.php(5): include()
+#1 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:39:25 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/product-detail.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:39:30 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/product-detail.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:39:53 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/late-payment.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:39:57 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/popup-login-member-corporate.php(5): include()
+#1 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:40:21 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/other.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:40:27 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/other.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[04-May-2018 17:40:50 UTC] PHP Fatal error:  Uncaught Error: Class 'mysqli' not found in /home/ngcdemo/public_html/fixcomart/config/connection.php:19
+Stack trace:
+#0 /home/ngcdemo/public_html/fixcomart/header.php(4): include()
+#1 /home/ngcdemo/public_html/fixcomart/product-detail.php(1): include('/home/ngcdemo/p...')
+#2 {main}
+  thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
+[06-May-2018 14:48:49 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/ngcdemo/public_html/fixcomart/product-list.php on line 173
+[06-May-2018 14:48:49 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/ngcdemo/public_html/fixcomart/product-list.php on line 173
