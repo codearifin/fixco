@@ -33,34 +33,7 @@
         <section class="top-ads">
             <div class="main-container">
                 <div class="row small-gutter">
-                    <div class="grid-child n-1-1per1 n-1-1per2 n-768-1per4 n-768-no-margin-bottom">
-                        <div class="ads-banner">
-                            <div class="ngc-media">
-                                <a href=""><img src="images/ads/ads1.jpg" alt="PUT TITLE HERE" class="lazyload" data-expand="-10"></a>
-                            </div><!-- .ngc-media -->
-                        </div><!-- .ads-banner -->
-                    </div><!-- .grid-child -->
-                    <div class="grid-child n-1-1per1 n-1-1per2 n-768-1per4 n-768-no-margin-bottom">
-                        <div class="ads-banner">
-                            <div class="ngc-media">
-                                <a href=""><img src="images/ads/ads2.jpg" alt="PUT TITLE HERE" class="lazyload" data-expand="-10"></a>
-                            </div><!-- .ngc-media -->
-                        </div><!-- .ads-banner -->
-                    </div><!-- .grid-child -->
-                    <div class="grid-child n-1-1per1 n-1-1per2 n-768-1per4 n-768-no-margin-bottom">
-                        <div class="ads-banner">
-                            <div class="ngc-media">
-                                <a href=""><img src="images/ads/ads1.jpg" alt="PUT TITLE HERE" class="lazyload" data-expand="-10"></a>
-                            </div><!-- .ngc-media -->
-                        </div><!-- .ads-banner -->
-                    </div><!-- .grid-child -->
-                    <div class="grid-child n-1-1per1 n-1-1per2 n-768-1per4 n-768-no-margin-bottom">
-                        <div class="ads-banner">
-                            <div class="ngc-media">
-                                <a href=""><img src="images/ads/ads2.jpg" alt="PUT TITLE HERE" class="lazyload" data-expand="-10"></a>
-                            </div><!-- .ngc-media -->
-                        </div><!-- .ads-banner -->
-                    </div><!-- .grid-child -->
+                    <?php topads(); ?>
                 </div><!-- .row -->
             </div><!-- .main-container -->
         </section><!-- .top-ads -->
@@ -92,11 +65,11 @@
             <div class="grid-child n-768-3per5 n-no-margin-bottom">
                 <div class="request-quotation-box">
                     <h2 class="ngc-title">Dapatkan Penawaran Terbaik</h2>
-                    <form class="general-form quotation-form">
+                    <form action="quotation-request.php" class="general-form quotation-form" method="post">
                         <div class="form-group">
                             <label class="f-pb">Nama Produk</label>
                             <div class="input-wrap has-icon quotation-input-form">
-                                <input type="text" class="autocomplete-quotation" placeholder="Masukkan Nama Produk yang anda minta… contoh: Tekiro Box Fullset">
+                                <input type="text" name="nama_produk" class="autocomplete-quotation" placeholder="Masukkan Nama Produk yang anda minta… contoh: Tekiro Box Fullset">
                                 <span class="fa fa-sticky-note icon"></span>
                             </div><!-- .input-wrap -->
                         </div><!-- .form-group -->
@@ -105,7 +78,7 @@
                                 <div class="form-group n-no-margin-bottom">
                                     <label class="f-pb">Jumlah</label>
                                     <div class="input-wrap">
-                                        <input type="number" value="100">
+                                        <input type="number" name="jumlah" value="100">
                                     </div><!-- .input-wrap -->
                                 </div><!-- .form-group -->
                             </div><!-- .grid-child -->
@@ -114,17 +87,16 @@
                                     <label class="f-pb">Satuan</label>
                                     <div class="input-wrap">
                                         <div class="select-style">
-                                            <select>
-                                                <option>Pieces</option>
-                                                <option>Karton</option>
-                                                <option>Box</option>
+                                            <select name="satuan">
+                                                <?php satuanquotation(); ?>
                                             </select>
                                         </div><!-- .select-style -->
                                     </div><!-- .input-wrap -->
                                 </div><!-- .form-group -->
                             </div><!-- .grid-child -->
                             <div class="grid-child n-1-1per1 n-540-1per2 n-no-margin-bottom">
-                                <a href="quotation-request.php" class="btn btn-yellow">BUAT PERMINTAAN</a>
+                                <input type="submit" class="btn btn-red" value="BUAT PERMINTAAN" name="submit" />
+                                <!-- <a href="quotation-request.php" class="btn btn-yellow">BUAT PERMINTAAN</a> -->
                             </div><!-- .grid-child -->
                         </div><!-- .row -->
                     </form><!-- .general-form -->
@@ -201,54 +173,7 @@
     	<div class="row">
 
             <div class="bottom-ads">
-                <div class="row small-gutter">
-                    <div class="grid-child n-1-1per1 n-540-1per2">
-                        <div class="ads-banner">
-                            <div class="ngc-media">
-                                <a href=""><img src="images/ads/ads1.jpg" alt="PUT TITLE HERE" class="lazyload" data-expand="-10"></a>
-                            </div><!-- .ngc-media -->
-                        </div><!-- .ads-banner -->
-                    </div><!-- .grid-child -->
-                    <div class="grid-child n-1-1per1 n-540-1per2">
-                        <div class="ads-banner">
-                            <div class="ngc-media">
-                                <a href=""><img src="images/ads/ads2.jpg" alt="PUT TITLE HERE" class="lazyload" data-expand="-10"></a>
-                            </div><!-- .ngc-media -->
-                        </div><!-- .ads-banner -->
-                    </div><!-- .grid-child -->
-                </div><!-- .row -->
-                 <div class="row small-gutter">
-                    <div class="grid-child n-1-1per1">
-                        <div class="ads-banner">
-                            <div class="ngc-media">
-                                <a href=""><img src="images/ads/ads3.jpg" alt="PUT TITLE HERE" class="lazyload" data-expand="-10"></a>
-                            </div><!-- .ngc-media -->
-                        </div><!-- .ads-banner -->
-                    </div><!-- .grid-child -->
-                </div><!-- .row -->
-                <div class="row small-gutter">
-                    <div class="grid-child n-1-1per1 n-540-1per3">
-                        <div class="ads-banner">
-                            <div class="ngc-media">
-                                <a href=""><img src="images/ads/ads1.jpg" alt="PUT TITLE HERE" class="lazyload" data-expand="-10"></a>
-                            </div><!-- .ngc-media -->
-                        </div><!-- .ads-banner -->
-                    </div><!-- .grid-child -->
-                    <div class="grid-child n-1-1per1 n-540-1per3">
-                        <div class="ads-banner">
-                            <div class="ngc-media">
-                                <a href=""><img src="images/ads/ads2.jpg" alt="PUT TITLE HERE" class="lazyload" data-expand="-10"></a>
-                            </div><!-- .ngc-media -->
-                        </div><!-- .ads-banner -->
-                    </div><!-- .grid-child -->
-                    <div class="grid-child n-1-1per1 n-540-1per3">
-                        <div class="ads-banner">
-                            <div class="ngc-media">
-                                <a href=""><img src="images/ads/ads3.jpg" alt="PUT TITLE HERE" class="lazyload" data-expand="-10"></a>
-                            </div><!-- .ngc-media -->
-                        </div><!-- .ads-banner -->
-                    </div><!-- .grid-child -->
-                </div><!-- .row -->
+                <?php bottomads(); ?>
             </div><!-- .bottom-ads -->
 
             <?php productescalatornew();?>

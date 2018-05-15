@@ -4987,5 +4987,84 @@
 		endif;
 	}
 
+	function topads(){
+		global $db;
+		$query = $db->query("SELECT `name`,`link`,`image_ads` FROM `ads_top` WHERE `publish` = 1 ORDER BY `sortnumber`") or die($db->error);
+		$jumpage = $query->num_rows;
+
+		if($jumpage>0):
+			while($row = $query->fetch_assoc()):
+				echo '<div class="grid-child n-1-1per1 n-1-1per2 n-768-1per4 n-768-no-margin-bottom">
+                        <div class="ads-banner">
+                            <div class="ngc-media">
+                                <a href="'.$row['link'].'"><img src="'.$GLOBALS['UPLOAD_FOLDER'].$row['image_ads'].'" alt="'.$row['name'].'" class="lazyload" data-expand="-10"></a>
+                            </div><!-- .ngc-media -->
+                        </div><!-- .ads-banner -->
+                    </div><!-- .grid-child -->';
+			endwhile;
+		endif;
+	}
+
+	function bottomads(){
+		global $db;
+		$column_size = Array();
+		$id_row = Array();
+		$query_row = $db->query("SELECT `id`,`column_size` FROM `ads_row` WHERE `publish` = 1 ORDER BY `sortnumber`") or die($db->error);
+		$jumpage_row = $query_row->num_rows;
+
+		if($jumpage_row>0):
+			while($row = $query_row->fetch_assoc()):
+				$column_size[$row['id']] = $row['column_size'];
+				array_push($id_row,$row['id']);
+			endwhile;
+		endif;
+
+		for ($i=0; $i < sizeof($id_row); $i++) { 
+			$query_col = $db->query("SELECT `id_row`,`name`,`link`,`image_ads` FROM `ads_column` WHERE `publish` = 1 AND `id_row` = '$id_row[$i]' ORDER BY `sortnumber`") or die($db->error);
+			$jumpage_col = $query_col->num_rows;
+			echo '<div class="row small-gutter">';
+			if($jumpage_col>0):
+				while($row = $query_col->fetch_assoc()):
+					echo '<div class="grid-child n-1-1per1 n-540-1per'.$column_size[$row['id_row']].'">
+	                        <div class="ads-banner">
+	                            <div class="ngc-media">
+	                                <a href="'.$row['link'].'"><img src="'.$GLOBALS['UPLOAD_FOLDER'].$row['image_ads'].'" alt="'.$row['name'].'" class="lazyload" data-expand="-10"></a>
+	                            </div><!-- .ngc-media -->
+	                        </div><!-- .ads-banner -->
+	                    </div><!-- .grid-child -->';
+				endwhile;
+			endif;
+			echo '</div><!-- .row -->';
+		}
+	}
+
+	function satuanquotation(){
+		global $db;
+		$query = $db->query("SELECT `id`,`satuan` FROM `satuan_quotation` WHERE `publish` = 1 ORDER BY `sortnumber`") or die($db->error);
+		$jumpage = $query->num_rows;
+
+		if($jumpage>0):
+			while($row = $query->fetch_assoc()):
+				echo '<option value="'.$row['id'].'">'.$row['satuan'].'</option>';
+			endwhile;
+		endif;
+	}
+
+	function setsatuanquotation($satuan){
+		global $db;
+		$query = $db->query("SELECT `id`,`satuan` FROM `satuan_quotation` WHERE `publish` = 1 ORDER BY `sortnumber`") or die($db->error);
+		$jumpage = $query->num_rows;
+
+		if($jumpage>0):
+			while($row = $query->fetch_assoc()):
+				if($row['id'] == $satuan){
+					echo '<option value="'.$row['id'].'" selected="selected">'.$row['satuan'].'</option>';
+				}else{
+					echo '<option value="'.$row['id'].'">'.$row['satuan'].'</option>';
+				}
+			endwhile;
+		endif;
+	}
+
 	
 ?>

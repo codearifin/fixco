@@ -1,4 +1,23 @@
-<?php include("header.php"); ?>
+<?php include("header.php"); 
+if(isset($_SESSION['user_token'])){
+    if(isset($_POST['submit'])){
+        if(isset($_POST['nama_produk'])){
+            $nama_produk = $_POST['nama_produk'];
+        }
+        if(isset($_POST['jumlah'])){
+            $jumlah = $_POST['jumlah'];
+        }
+        if(isset($_POST['satuan'])){
+            $satuan = $_POST['satuan'];
+        }
+
+    }
+}else{    
+    $_SESSION['error_msg']='login-first';
+    echo '<script type="text/javascript">setInterval(function(){ window.location="'.$GLOBALS['SITE_URL'].'index"; }, 3000);</script>';
+}
+
+?>
 </head>
 
 <body>
@@ -37,7 +56,7 @@
                             <div class="form-group">
                                 <label class="f-pb">Nama Produk</label>
                                 <div class="input-wrap has-icon quotation-input-form">
-                                    <input type="text" class="autocomplete-quotation" placeholder="Masukkan Nama Produk yang anda minta… contoh: Tekiro Box Fullset">
+                                    <input type="text" name="nama_produk" class="autocomplete-quotation" placeholder="Masukkan Nama Produk yang anda minta… contoh: Tekiro Box Fullset">
                                 </div><!-- .input-wrap -->
                             </div><!-- .form-group -->
                             <div class="row medium-gutter">
@@ -54,10 +73,8 @@
                                         <label class="f-pb">Satuan</label>
                                         <div class="input-wrap">
                                             <div class="select-style">
-                                                <select>
-                                                    <option>Pieces</option>
-                                                    <option>Karton</option>
-                                                    <option>Box</option>
+                                                <select name="satuan">
+                                                    <?php satuanquotation(); ?>
                                                 </select>
                                             </div><!-- .select-style -->
                                         </div><!-- .input-wrap -->
@@ -67,7 +84,7 @@
                                     <div class="form-group">
                                         <label class="f-pb">Keterangan</label>
                                         <div class="input-wrap">
-                                            <textarea rows="5" style="height: auto;"></textarea>
+                                            <textarea rows="5" name="keterangan" style="height: auto;"></textarea>
                                         </div><!-- .input-wrap -->
                                     </div><!-- .form-group -->
                                 </div><!-- .grid-child -->
@@ -98,7 +115,7 @@
                             <div class="form-group">
                                 <label class="f-pb">Nama Produk</label>
                                 <div class="input-wrap has-icon quotation-input-form">
-                                    <input type="text" class="autocomplete-quotation" placeholder="Masukkan Nama Produk yang anda minta… contoh: Tekiro Box Fullset" value="Tekiro Box Fullset">
+                                    <input type="text" name="nama_produk" class="autocomplete-quotation" placeholder="Masukkan Nama Produk yang anda minta… contoh: Tekiro Box Fullset" value="<?php echo $nama_produk; ?>">
                                 </div><!-- .input-wrap -->
                             </div><!-- .form-group -->
                             <div class="row medium-gutter">
@@ -106,7 +123,7 @@
                                     <div class="form-group">
                                         <label class="f-pb">Jumlah</label>
                                         <div class="input-wrap">
-                                            <input type="number" value="100">
+                                            <input type="number" name="jumlah" value="<?php echo $jumlah; ?>">
                                         </div><!-- .input-wrap -->
                                     </div><!-- .form-group -->
                                 </div><!-- .grid-child -->
@@ -115,10 +132,8 @@
                                         <label class="f-pb">Satuan</label>
                                         <div class="input-wrap">
                                             <div class="select-style">
-                                                <select>
-                                                    <option>Pieces</option>
-                                                    <option selected="selected">Karton</option>
-                                                    <option>Box</option>
+                                                <select name="satuan">
+                                                    <?php setsatuanquotation($satuan); ?>
                                                 </select>
                                             </div><!-- .select-style -->
                                         </div><!-- .input-wrap -->
@@ -128,7 +143,7 @@
                                     <div class="form-group">
                                         <label class="f-pb">Keterangan</label>
                                         <div class="input-wrap">
-                                            <textarea rows="5" style="height: auto;"></textarea>
+                                            <textarea rows="5" name="keterangan" style="height: auto;"></textarea>
                                         </div><!-- .input-wrap -->
                                     </div><!-- .form-group -->
                                 </div><!-- .grid-child -->
@@ -153,7 +168,8 @@
                     </div><!-- .add-btn-wrap -->
 
                     <div class="process-request">
-                        <a href="" class="btn btn-red">LANJUT</a>
+                        <input type="submit" class="btn btn-red" value="LANJUT" name="submit" />
+                        <!-- <a href="" class="btn btn-red">LANJUT</a> -->
                         <div class="why-fixcomart">
                             <h3 class="ngc-title">Mengapa Anda Harus Menggunakan Fixcomart Sebagai Purchasing Tools Anda?</h3>
                             <div class="nuke-wysiwyg">
