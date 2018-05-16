@@ -212,6 +212,9 @@ RewriteRule ^order-detail-corporate/([^/]*)/?$			 order-detail-corporate.php?cod
 RewriteRule ^cancel-order-corporate/([^/]*)/?$			 include/cancel-order-corporate.php?code=$1
 RewriteRule ^checkout-quotation-list/([^/]*)/?$			 include/checkout-quotation-list.php?code=$1
 
+#request for quotation
+RewriteRule ^quotation-request/?$ 					 	 quotation-request.php
+RewriteRule ^do-quotation-request/?$ 					 include/do-quotation-request.php
 
 #affiliate url
 RewriteRule ^affiliate/([^/]*)/?$ 					 	 affiliate-checkstatus.php?token=$1

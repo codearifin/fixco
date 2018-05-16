@@ -304,7 +304,21 @@ elseif($statalert=="konfirmasioke"):
 		$(document).ready(function() {
 			 swal("SUCCESSFUL", "Confirm payment successful, Please waiting approval.", "success");
 		});
-	</script>';						
+	</script>';
+elseif($statalert=="addquotationoke"):
+
+	echo'<script type="text/javascript">
+		$(document).ready(function() {
+			 swal("SUCCESSFUL", "Request for quotation has been successfully submitted.", "success");
+		});
+	</script>';
+elseif($statalert=="addquotationgagal"):
+
+	echo'<script type="text/javascript">
+		$(document).ready(function() {
+			 swal("ERROR", "Request for quotation submission failed, Please try again.", "error");
+		});
+	</script>';
 		
 endif;
 

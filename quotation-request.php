@@ -45,6 +45,7 @@ if(isset($_SESSION['user_token'])){
                 </div><!-- .nuke-wysiwyg -->
                 
                 <div class="general-form quotation-detail-form">
+
                     
                     <!-- this is for clone, START -->
                     <div id="clone-me">
@@ -56,7 +57,7 @@ if(isset($_SESSION['user_token'])){
                             <div class="form-group">
                                 <label class="f-pb">Nama Produk</label>
                                 <div class="input-wrap has-icon quotation-input-form">
-                                    <input type="text" name="nama_produk" class="autocomplete-quotation" placeholder="Masukkan Nama Produk yang anda minta… contoh: Tekiro Box Fullset">
+                                    <input type="text" name="nama_produk[]" class="autocomplete-quotation" placeholder="Masukkan Nama Produk yang anda minta… contoh: Tekiro Box Fullset">
                                 </div><!-- .input-wrap -->
                             </div><!-- .form-group -->
                             <div class="row medium-gutter">
@@ -64,7 +65,7 @@ if(isset($_SESSION['user_token'])){
                                     <div class="form-group">
                                         <label class="f-pb">Jumlah</label>
                                         <div class="input-wrap">
-                                            <input type="number" value="">
+                                            <input type="number" name="jumlah[]" value="">
                                         </div><!-- .input-wrap -->
                                     </div><!-- .form-group -->
                                 </div><!-- .grid-child -->
@@ -73,7 +74,7 @@ if(isset($_SESSION['user_token'])){
                                         <label class="f-pb">Satuan</label>
                                         <div class="input-wrap">
                                             <div class="select-style">
-                                                <select name="satuan">
+                                                <select name="satuan[]">
                                                     <?php satuanquotation(); ?>
                                                 </select>
                                             </div><!-- .select-style -->
@@ -84,13 +85,13 @@ if(isset($_SESSION['user_token'])){
                                     <div class="form-group">
                                         <label class="f-pb">Keterangan</label>
                                         <div class="input-wrap">
-                                            <textarea rows="5" name="keterangan" style="height: auto;"></textarea>
+                                            <textarea rows="5" name="keterangan[]" style="height: auto;"></textarea>
                                         </div><!-- .input-wrap -->
                                     </div><!-- .form-group -->
                                 </div><!-- .grid-child -->
                                 <div class="grid-child n-1-1per1 n-no-margin-bottom">
                                     <div class="form-group">
-                                        <div class="clone_dropzone" id="upload-0">
+                                        <div class="clone_dropzone" name="image[]" id="upload-0">
                                             <div class="dropzone-intro">
                                                 <h3><span class="fa fa-image icon"></span><span class="text">Unggah Gambar Produk di Sini</span></h3>
                                             </div><!-- .dropzone-intro -->
@@ -105,86 +106,86 @@ if(isset($_SESSION['user_token'])){
                     </div><!-- #clone-me -->
                     <!-- this is for clone, END -->
 
-                    <!-- start here -->
-                    <div class="item-wrap">
-                        <div class="item first">
-                            <a href="" class="remove-me">
-                                <span class="fa fa-times icon"></span>
-                                <span class="text">Hapus</span>
-                            </a>
-                            <div class="form-group">
-                                <label class="f-pb">Nama Produk</label>
-                                <div class="input-wrap has-icon quotation-input-form">
-                                    <input type="text" name="nama_produk" class="autocomplete-quotation" placeholder="Masukkan Nama Produk yang anda minta… contoh: Tekiro Box Fullset" value="<?php echo $nama_produk; ?>">
-                                </div><!-- .input-wrap -->
-                            </div><!-- .form-group -->
-                            <div class="row medium-gutter">
-                                <div class="grid-child n-1-1per2 n-540-1per4 n-no-margin-bottom">
-                                    <div class="form-group">
-                                        <label class="f-pb">Jumlah</label>
-                                        <div class="input-wrap">
-                                            <input type="number" name="jumlah" value="<?php echo $jumlah; ?>">
-                                        </div><!-- .input-wrap -->
-                                    </div><!-- .form-group -->
-                                </div><!-- .grid-child -->
-                                <div class="grid-child n-1-1per2 n-540-1per4 n-no-margin-bottom">
-                                    <div class="form-group">
-                                        <label class="f-pb">Satuan</label>
-                                        <div class="input-wrap">
-                                            <div class="select-style">
-                                                <select name="satuan">
-                                                    <?php setsatuanquotation($satuan); ?>
-                                                </select>
-                                            </div><!-- .select-style -->
-                                        </div><!-- .input-wrap -->
-                                    </div><!-- .form-group -->
-                                </div><!-- .grid-child -->
-                                <div class="grid-child n-1-1per1 n-no-margin-bottom">
-                                    <div class="form-group">
-                                        <label class="f-pb">Keterangan</label>
-                                        <div class="input-wrap">
-                                            <textarea rows="5" name="keterangan" style="height: auto;"></textarea>
-                                        </div><!-- .input-wrap -->
-                                    </div><!-- .form-group -->
-                                </div><!-- .grid-child -->
-                                <div class="grid-child n-1-1per1 n-no-margin-bottom">
-                                    <div class="form-group">
-                                        <div class="dropzone" id="upload-1">
-                                            <div class="dropzone-intro">
-                                                <h3><span class="fa fa-image icon"></span><span class="text">Unggah Gambar Produk di Sini</span></h3>
-                                            </div><!-- .dropzone-intro -->
-                                            <div class="pta-drop-preview">
-                                                
-                                            </div><!-- .pta-drop-preview -->
-                                        </div><!-- #upload1-dropzone -->
-                                    </div><!-- .form-group -->
-                                </div><!-- .grid-child -->
-                            </div><!-- .row -->
-                        </div><!-- .item -->
-                    </div><!-- .item-wrap -->
+                    <form action="<?php $GLOBALS['SITE_URL'];?>do-quotation-request" method="post" class="general-form" id="register_formcoor" enctype="multipart/form-data"><!-- start here -->
+                        <div class="item-wrap">
+                            <div class="item first">
+                                <a href="" class="remove-me">
+                                    <span class="fa fa-times icon"></span>
+                                    <span class="text">Hapus</span>
+                                </a>
+                                <div class="form-group">
+                                    <label class="f-pb">Nama Produk</label>
+                                    <div class="input-wrap has-icon quotation-input-form">
+                                        <input type="text" name="nama_produk[]" class="autocomplete-quotation" placeholder="Masukkan Nama Produk yang anda minta… contoh: Tekiro Box Fullset" value="<?php echo $nama_produk; ?>">
+                                    </div><!-- .input-wrap -->
+                                </div><!-- .form-group -->
+                                <div class="row medium-gutter">
+                                    <div class="grid-child n-1-1per2 n-540-1per4 n-no-margin-bottom">
+                                        <div class="form-group">
+                                            <label class="f-pb">Jumlah</label>
+                                            <div class="input-wrap">
+                                                <input type="number" name="jumlah[]" value="<?php echo $jumlah; ?>">
+                                            </div><!-- .input-wrap -->
+                                        </div><!-- .form-group -->
+                                    </div><!-- .grid-child -->
+                                    <div class="grid-child n-1-1per2 n-540-1per4 n-no-margin-bottom">
+                                        <div class="form-group">
+                                            <label class="f-pb">Satuan</label>
+                                            <div class="input-wrap">
+                                                <div class="select-style">
+                                                    <select name="satuan[]">
+                                                        <?php setsatuanquotation($satuan); ?>
+                                                    </select>
+                                                </div><!-- .select-style -->
+                                            </div><!-- .input-wrap -->
+                                        </div><!-- .form-group -->
+                                    </div><!-- .grid-child -->
+                                    <div class="grid-child n-1-1per1 n-no-margin-bottom">
+                                        <div class="form-group">
+                                            <label class="f-pb">Keterangan</label>
+                                            <div class="input-wrap">
+                                                <textarea rows="5" name="keterangan[]" style="height: auto;"></textarea>
+                                            </div><!-- .input-wrap -->
+                                        </div><!-- .form-group -->
+                                    </div><!-- .grid-child -->
+                                    <div class="grid-child n-1-1per1 n-no-margin-bottom">
+                                        <div class="form-group">
+                                            <div class="dropzone" name="image[]" id="upload-1">
+                                                <div class="dropzone-intro">
+                                                    <h3><span class="fa fa-image icon"></span><span class="text">Unggah Gambar Produk di Sini</span></h3>
+                                                </div><!-- .dropzone-intro -->
+                                                <div class="pta-drop-preview">
+                                                    
+                                                </div><!-- .pta-drop-preview -->
+                                            </div><!-- #upload1-dropzone -->
+                                        </div><!-- .form-group -->
+                                    </div><!-- .grid-child -->
+                                </div><!-- .row -->
+                            </div><!-- .item -->
+                        </div><!-- .item-wrap -->
 
-                    <div class="add-btn-wrap">
-                        <a href="" class="btn btn-yellow btn-add-produk"><span class="fa fa-plus"></span>&nbsp;Tambah Produk</a>
-                    </div><!-- .add-btn-wrap -->
+                        <div class="add-btn-wrap">
+                            <a href="" class="btn btn-yellow btn-add-produk"><span class="fa fa-plus"></span>&nbsp;Tambah Produk</a>
+                        </div><!-- .add-btn-wrap -->
 
-                    <div class="process-request">
-                        <input type="submit" class="btn btn-red" value="LANJUT" name="submit" />
-                        <!-- <a href="" class="btn btn-red">LANJUT</a> -->
-                        <div class="why-fixcomart">
-                            <h3 class="ngc-title">Mengapa Anda Harus Menggunakan Fixcomart Sebagai Purchasing Tools Anda?</h3>
-                            <div class="nuke-wysiwyg">
-                                <p>Donut pastry apple pie cupcake wafer. Marzipan pudding danish cheesecake sesame snaps dragée tart.</p>
-                                <ul>
-                                    <li>Anda dapat mengundang supplier favorit Anda secara exclusive untuk memberikan penawaran atas permintaan Anda</li>
-                                    <li>Membandingkan semua penawaran dengan mudah</li>
-                                    <li>Cepat, efisien, dan menghemat waktu Anda karena tidak perlu melakukan pengecekan email satu per satu</li>
-                                    <li>Pantau semua kegiatan permintaan dan penawaran Anda dalam 1 sistem</li>
-                                    <li>Data disimpan hingga bertahun-tahun</li>
-                                </ul>
-                            </div><!-- .nuke-wysiwyg -->
-                        </div><!-- .why-fixcomart -->
-                    </div><!-- .process-request -->
-
+                        <div class="process-request">
+                            <input type="submit" class="btn btn-red" value="LANJUT" name="submit" />
+                            <!-- <a href="" class="btn btn-red">LANJUT</a> -->
+                            <div class="why-fixcomart">
+                                <h3 class="ngc-title">Mengapa Anda Harus Menggunakan Fixcomart Sebagai Purchasing Tools Anda?</h3>
+                                <div class="nuke-wysiwyg">
+                                    <p>Donut pastry apple pie cupcake wafer. Marzipan pudding danish cheesecake sesame snaps dragée tart.</p>
+                                    <ul>
+                                        <li>Anda dapat mengundang supplier favorit Anda secara exclusive untuk memberikan penawaran atas permintaan Anda</li>
+                                        <li>Membandingkan semua penawaran dengan mudah</li>
+                                        <li>Cepat, efisien, dan menghemat waktu Anda karena tidak perlu melakukan pengecekan email satu per satu</li>
+                                        <li>Pantau semua kegiatan permintaan dan penawaran Anda dalam 1 sistem</li>
+                                        <li>Data disimpan hingga bertahun-tahun</li>
+                                    </ul>
+                                </div><!-- .nuke-wysiwyg -->
+                            </div><!-- .why-fixcomart -->
+                        </div><!-- .process-request -->
+                    </form>
                 </div><!-- .general-form -->
 
                 

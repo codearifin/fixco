@@ -50,7 +50,30 @@
     </div><!-- .container -->
 </section><!-- .below-banner-section -->
 
-
+<section class="section section-flashsale">
+    <div class="container">
+        <div class="row">
+            <div class="fs-heading">
+                <h2>Flash Sale</h2>
+                <div class="countdown-wrap">
+                    <p>Berakhir Dalam</p>
+                    <ul id="fs-date" class="fs-countdown">
+                        <li><span class="days">00</span><p class="days_text">DAYS</p></li>
+                        <li class="seperator">:</li>
+                        <li><span class="hours">00</span><p class="hours_text">HOURS</p></li>
+                        <li class="seperator">:</li>
+                        <li><span class="minutes">00</span><p class="minutes_text">MINS</p></li>
+                    </ul>
+                </div><!-- .countdown-wrap -->
+            </div><!-- .fs-heading -->
+            <div class="flash-carousel-wrap">
+                <div class="owl-flashtab">
+                    <?php getflashsaleproduct(); ?>
+                </div><!-- .owl-flashtab -->
+            </div><!-- .flash-carousel-wrap -->
+        </div><!-- .row -->
+    </div><!-- .container -->
+</section><!-- .index-tab -->
 
 <section class="section section-quotation">
     <div class="container">
@@ -65,7 +88,7 @@
             <div class="grid-child n-768-3per5 n-no-margin-bottom">
                 <div class="request-quotation-box">
                     <h2 class="ngc-title">Dapatkan Penawaran Terbaik</h2>
-                    <form action="quotation-request.php" class="general-form quotation-form" method="post">
+                    <form action="<?php echo $GLOBALS['SITE_URL']; ?>quotation-request" class="general-form quotation-form" method="post">
                         <div class="form-group">
                             <label class="f-pb">Nama Produk</label>
                             <div class="input-wrap has-icon quotation-input-form">
@@ -245,8 +268,8 @@
             appendTo: ".quotation-input-form"
         });
 
-        /*$('#fs-date').countdown({
-            date: '5/7/2018 4:02:30', // gmt + 0
+        $('#fs-date').countdown({
+            date: '<?php echo flashsaleenddate(); ?>', // gmt + 0
             day: 'DAY',
             days: 'DAYS',
             hour: 'HOUR',
@@ -258,7 +281,7 @@
         }, function () {
           //alert('Flash sale ended!');
           $(".section-flashsale").hide();
-        });*/
+        });
     });
 </script>
 

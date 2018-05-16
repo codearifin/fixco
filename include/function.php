@@ -5066,5 +5066,87 @@
 		endif;
 	}
 
+	function getflashsaleproduct(){
+		global $db;
+		$id_header="";
+		$id_product = Array();
+		$query_header = $db->query("SELECT `id` FROM `flash_sale_schedule` WHERE CURRENT_TIMESTAMP BETWEEN `start_date` AND `end_date`");
+		$jumpage_header = $query_header->num_rows;
+
+		if($jumpage_header>0):
+			while($row = $query_header->fetch_assoc()):
+				$id_header = $row['id'];
+			endwhile;
+		endif;
+
+		$query_product = $db->query("SELECT `id_product` FROM `flash_sale_product` WHERE `id_flash_sale_schedule` = $id_header");
+		$jumpage_product = $query_product->num_rows;
+
+		if($jumpage_product>0):
+			while($row = $query_product->fetch_assoc()):
+				array_push($id_product, $row['id_product']);
+			endwhile;
+		endif;
+
+		for ($i=0; $i < sizeof($id_product); $i++) { 
+			$query = $db->query("SELECT * FROM `product` WHERE `publish` = 1 and `id` = '$id_product[$i]' ") or die($db->error);
+			$jumpage = $query->num_rows;
+			if($jumpage>0):
+				$row = $query->fetch_assoc();
+				echo '<div class="item">';
+					echo '<div class="ctab-content smaller">';
+		                  echo '<div class="ctab-badge-wrap">';
+		                  	if($row['discount_value']>0):
+		                  		echo '<span class="ctab-badge f-psb">'.$row['discount_value'].'% OFF</span>';
+		                  	endif;
+		                      echo '</div><!-- .ctab-badge-wrap -->';
+		                                  echo '<div class="img-wrap"><a href="'.$GLOBALS['SITE_URL'].'product-detail/'.replace($row['name']).'/'.$row['id'].'">';
+										  			echo '<img src="'.$GLOBALS['UPLOAD_FOLDER'].''.$row['image'].'" alt="'.$row['name'].'" class="lazyload" data-expand="-10" /></a></div>';
+		                                  echo'<div class="ctab-content-prod">';
+										  
+		                                  echo '<span class="prod-brand f-yellow f-psb">'.generalselect("category","name"," `id` = '".$row['idkat']."' ").'</span>';
+		                                  echo '<h3 class="f-psb"><a href="'.$GLOBALS['SITE_URL'].'product-detail/'.replace($row['name']).'/'.$row['id'].'" title="'.$row['name'].'">'.substr($row['name'],0,50).'</a></h3>';
+		                                  echo '<div class="prod-price-wrap">';
+		                              
+									                   	if($row['discount_value']>0):
+										
+															$diskonval1 = ($row['price']*$row['discount_value'])/100;
+															$diskonval2 = round($diskonval1);
+															$diskonval3 = $row['price']-$diskonval1;
+										
+															echo '<span class="old-price">Rp '.number_format($row['price']).',-</span>';
+		               										echo '<span class="prod-price f-pb">Rp '.number_format($diskonval3).',-</span>';	
+														else:
+															echo '<span class="prod-price f-pb">Rp '.number_format($row['price']).',-</span>';	
+														endif;
+														
+		                                  echo'</div><!-- .prod-price-wrap -->';
+		                            echo'</div><!-- .ctab-content-prod -->';
+
+		                    	echo'<div class="btn-wrap">';
+							echo getbuttonbeliprod($row['id']);
+						echo'</div><!-- .btn-wrap -->';
+
+		            echo'</div><!-- .ctab-content -->';
+		        echo '</div><!-- .item -->';
+			endif; 	
+		}
+	}
+
+	function flashsaleenddate(){
+		global $db;
+		$end_date = "";
+		$query_header = $db->query("SELECT `end_date` FROM `flash_sale_schedule` WHERE CURRENT_TIMESTAMP BETWEEN `start_date` AND `end_date`");
+		$jumpage_header = $query_header->num_rows;
+
+		if($jumpage_header>0):
+			while($row = $query_header->fetch_assoc()):
+				$end_date = $row['end_date'];
+			endwhile;
+		endif;
+
+		return $end_date;
+	}
+
 	
 ?>
