@@ -8,14 +8,14 @@
 	}
 	
 	$query = $db->query("SELECT `id`,`activation_status` FROM `member` WHERE `tokenmember` = '$member_token'") or die($db->error);
-	$data = $query->fetch_assoc();
+	$member = $query->fetch_assoc();
 
 	if($member['activation_status'] == 0){
-		$update = $db->query("UPDATE `member` SET `activation_status` = 1 WHERE `token` = '$member_token'");
-		// $_SESSION['error_msg']='member_corporate';
+		$update = $db->query("UPDATE `member` SET `activation_status` = 1 WHERE `tokenmember` = '$member_token'");
+		$_SESSION['error_msg']='activationoke';
 		echo'<script type="text/javascript">window.location="'.$SITE_URL.'index"</script>';
 	}else{
-		$_SESSION['error_msg']='member_corporate';
+		$_SESSION['error_msg']='activationdone';
 		echo'<script type="text/javascript">window.location="'.$SITE_URL.'index"</script>';
 	}	
 ?>

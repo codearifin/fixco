@@ -61,7 +61,7 @@
 
 <div id="order-detail" style="width:600px; padding:20px 20px 20px 20px;">
 
-	<h2 class="f-gm f-rcr" style="font-size:16px; padding-bottom:10px;">Request Quotation Detail</h2>
+	<h2 class="f-gm f-rcr" style="font-size:16px; padding-bottom:10px;">Quotation Request Detail</h2>
 
 	<p class="order-date">Creator Name : <?php echo $row['creator_name'];?></p>
 	<p class="order-date">Creator Email : <?php echo $row['creator_email'];?></p>
@@ -91,7 +91,7 @@
 				while($data = $query_data->fetch_assoc()):
 						echo'<div class="odb-child">
 
-							<div class="img-wrap">'.getimagesdetail($data['image'],$UPLOAD_FOLDER).'</div>
+							<div class="img-wrap"><img src="'.$UPLOAD_FOLDER.$data['image'].'" /></div>
 
 							<div class="scb1-txt clearfix">
 
@@ -117,7 +117,7 @@
 
 							</div><!-- .scb1-txt -->
 
-						</div><!-- .cpt-child -->';				
+						</div><!-- .odb-child -->';				
 
 
 

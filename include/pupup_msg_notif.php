@@ -195,7 +195,7 @@ elseif($statalert=="registersuccess"):
 
 	echo'<script type="text/javascript">
 		$(document).ready(function() {
-			 swal("SUCCESSFUL", "Please Login and complete your personal data beforehand!", "success");
+			 swal("SUCCESSFUL", "Please check your email and click the activation link.", "success");
 		});
 	</script>';	
 
@@ -317,6 +317,38 @@ elseif($statalert=="addquotationgagal"):
 	echo'<script type="text/javascript">
 		$(document).ready(function() {
 			 swal("ERROR", "Request for quotation submission failed, Please try again.", "error");
+		});
+	</script>';
+
+elseif($statalert=="activationoke"):
+
+	echo'<script type="text/javascript">
+		$(document).ready(function() {
+			 swal("SUCCESSFUL", "Member activation Success, Please login to your account.", "success");
+		});
+	</script>';
+
+elseif($statalert=="activationgagal"):
+
+	echo'<script type="text/javascript">
+		$(document).ready(function() {
+			 swal("ERROR", "Member activation failed, Please try again.", "error");
+		});
+	</script>';
+
+elseif($statalert=="activationnotdone"):
+
+	echo'<script type="text/javascript">
+		$(document).ready(function() {
+			 swal("ERROR", "Your account haven\'t been activated yet, Please check your email to activate your account.", "error");
+		});
+	</script>';
+
+elseif($statalert=="activationdone"):
+
+	echo'<script type="text/javascript">
+		$(document).ready(function() {
+			 swal("ERROR", "Your account had been activated, Please login to your account.", "error");
 		});
 	</script>';
 		

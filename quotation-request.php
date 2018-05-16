@@ -91,14 +91,10 @@ if(isset($_SESSION['user_token'])){
                                 </div><!-- .grid-child -->
                                 <div class="grid-child n-1-1per1 n-no-margin-bottom">
                                     <div class="form-group">
-                                        <div class="clone_dropzone" name="file" id="upload-0">
-                                            <div class="dropzone-intro">
-                                                <h3><span class="fa fa-image icon"></span><span class="text">Unggah Gambar Produk di Sini</span></h3>
-                                            </div><!-- .dropzone-intro -->
-                                            <div class="pta-drop-preview">
-                                                
-                                            </div><!-- .pta-drop-preview -->
-                                        </div><!-- #upload1-dropzone -->
+                                        <label class="f-pb">Image</label>
+                                        <div class="input-wrap">
+                                            <input type="file" name="image[]">
+                                        </div><!-- .input-wrap -->
                                     </div><!-- .form-group -->
                                 </div><!-- .grid-child -->
                             </div><!-- .row -->
@@ -150,14 +146,10 @@ if(isset($_SESSION['user_token'])){
                                     </div><!-- .grid-child -->
                                     <div class="grid-child n-1-1per1 n-no-margin-bottom">
                                         <div class="form-group">
-                                            <div class="dropzone" name="file" id="upload-1">
-                                                <div class="dropzone-intro">
-                                                    <h3><span class="fa fa-image icon"></span><span class="text">Unggah Gambar Produk di Sini</span></h3>
-                                                </div><!-- .dropzone-intro -->
-                                                <div class="pta-drop-preview">
-                                                    
-                                                </div><!-- .pta-drop-preview -->
-                                            </div><!-- #upload1-dropzone -->
+                                            <label class="f-pb">Image</label>
+                                            <div class="input-wrap">
+                                                <input type="file" name="image[]">
+                                            </div><!-- .input-wrap -->
                                         </div><!-- .form-group -->
                                     </div><!-- .grid-child -->
                                 </div><!-- .row -->

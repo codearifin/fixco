@@ -8,10 +8,111 @@ require('webconfig-parameters.php');
 
 require('../config/myconfig.php');
 
+
+function replace_to_dash($text){
+
+		$str = array("’" , "/", " " , ":", "(", ")" , "?" , "%" , "," , "." , "!" , "#" , "$" , "@" , "^" , "&" , "\"" , "\\" , "\r\n" , "\n" , "\r" , "'", "rsquo;","_");
+
+		$newtext=str_replace($str,"-",strtolower($text));
+
+		return $newtext;
+
+}
+
+function get_file_extension($file_name) {
+	return substr(strrchr($file_name,'.'),1);
+}	
+
+function upload_myfile($name,$folder,$rename_to,$i){
+
+  // get file name & upload
+
+  $tmpt_folder    = $folder;
+
+  $image          = $_FILES[$name]['tmp_name'][$i];                   // get temp name
+
+  $image_name     = $_FILES[$name]['name'][$i];                       // get name
+
+  $image_baru     = multi_upload($image,$image_name,$tmpt_folder,$rename_to);
+
+  if($image_baru){
+
+      return $image_baru;
+
+  } else{
+
+      return false;
+
+  }
+
+}
+
+function multi_upload($img, $img_, $tmpt_folder, $rename_to){
+
+	$imgbaru = $rename_to."-".date("Y-m-d-His");
+
+	$extG    = get_file_extension($img_);
+
+	$ext     = '.'.$extG;
+
+	$checkextimg = strtolower($extG);
+
+
+	if(in_array($checkextimg, array("jpg", "jpeg", "png", "gif", "pdf", "xls", "doc", "mov", "ico", "mp4", "ogv", "webm"))):
+
+
+
+  	$imgname = $imgbaru.$ext;
+
+  	$dest    = $tmpt_folder.$imgname;
+
+
+
+  	if($img_ == '') {
+
+      $nama_gambar = '';
+
+    } else {
+
+      $nama_gambar = $imgname;
+
+    }
+
+
+    move_uploaded_file($img,$dest);
+
+		return $nama_gambar;
+
+	else:
+
+		$nama_gambar='kosong';
+
+	endif;	
+
+}
+
 if(isset($_POST['submit'])){
 	global $db;
-	print_r(json_encode($_POST));
-	print_r(json_encode($_FILES));die;
+	$array_data = Array();
+	$folder_lib_to_upload_folder = '../uploads/';
+
+	if($_FILES){
+
+		$rename_to_prefix = "";
+
+
+
+		foreach ($_FILES as $key => $value) {
+
+			if($value['name'] != ''){
+				for ($i=0; $i < sizeof($value['name']); $i++) {
+					$array_data[$i] = upload_myfile($key,$folder_lib_to_upload_folder,replace_to_dash($rename_to_prefix.$key),$i);
+				}
+			}
+
+		}
+	}
+
 	$user_token = $_SESSION['user_token'];
 	$query_user = $db->query("SELECT `id`,`email`,`name`,`lastname` FROM `member` WHERE `tokenmember` = '$user_token'") or die($db->error);
 	$user = $query_user->fetch_assoc();
@@ -32,8 +133,11 @@ if(isset($_POST['submit'])){
 		$jumlah 	 = filter_var($_POST['jumlah'][$i], FILTER_SANITIZE_STRING);
 		$id_satuan   = filter_var($_POST['satuan'][$i], FILTER_SANITIZE_STRING);
 		$keterangan  = filter_var($_POST['keterangan'][$i], FILTER_SANITIZE_STRING);
-		$query_header = $db->query("INSERT INTO `quotation_detail` (`id_quotation_header`,`nama_produk`,`jumlah`,`id_satuan`,`keterangan`,`publish`,`modified_datetime`) VALUES('$header_id','$nama_produk','$jumlah',$id_satuan,'$keterangan',1,'$dateNow')") or die($db->error);
+		$image 		 = $array_data[$i];
+		$query_header = $db->query("INSERT INTO `quotation_detail` (`id_quotation_header`,`nama_produk`,`jumlah`,`id_satuan`,`keterangan`,`image`,`publish`,`modified_datetime`) VALUES('$header_id','$nama_produk','$jumlah',$id_satuan,'$keterangan','$image',1,'$dateNow')") or die($db->error);
 	}
+
+	require('quotation_request_email.php');
 	$_SESSION['error_msg'] = 'addquotationoke';
 	echo'<script type="text/javascript">window.location="'.$GLOBALS['SITE_URL'].'index"</script>';
 }

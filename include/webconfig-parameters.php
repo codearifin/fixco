@@ -40,5 +40,6 @@
 
 	$registeremail_text = 'Registration Notification On '.$nameconfig.'';
 	$registeremail_textcorporate = 'Registration Corporate Notification On '.$nameconfig.'';
-	$resetpassid_text = 'We\'ve resetted your password On '.$nameconfig.'';	
+	$resetpassid_text = 'We\'ve resetted your password On '.$nameconfig.'';
+	$quotationrequest_text = 'Quotation Request Notification On '.$nameconfig;
  ?>

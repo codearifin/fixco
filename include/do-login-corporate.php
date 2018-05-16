@@ -41,7 +41,7 @@
 					if($jumdatacop>0):
 					
 						$_SESSION['error_msg']='member_regular';
-						echo'<script type="text/javascript">window.location="'.$SITE_URL.'index"</script>';		
+						echo'<script type="text/javascript">window.location="'.$SITE_URL.'index"</script>';
 								
 					else:
 					

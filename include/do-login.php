@@ -37,38 +37,48 @@
  		
 		if($TokenIdform==1):
 
-					$queryco = $db->query("SELECT `id` FROM `member` WHERE `email`='$email' and `member_category`='CORPORATE MEMBER' ");
+					$queryco = $db->query("SELECT `id`,`activation_status` FROM `member` WHERE `email`='$email' and `member_category`='CORPORATE MEMBER' ");
 					$jumdatacop = $queryco->num_rows;
 					if($jumdatacop>0):
-					
-						$_SESSION['error_msg']='member_corporate';
-						echo'<script type="text/javascript">window.location="'.$SITE_URL.'index"</script>';		
+						$row_co = $queryco->fetch_assoc();
+						if($row_co['activation_status'] == 1):
+							$_SESSION['error_msg']='member_corporate';
+							echo'<script type="text/javascript">window.location="'.$SITE_URL.'index"</script>';
+						else:
+							$_SESSION['error_msg']='activationnotdone';
+							echo'<script type="text/javascript">window.location="'.$SITE_URL.'index"</script>';					
+						endif;
 								
 					else:
 							
-							$query = $db->query("SELECT `id` FROM `member` WHERE `email`='$email' and `member_category`='REGULAR MEMBER' ");
+							$query = $db->query("SELECT `id`,`activation_status` FROM `member` WHERE `email`='$email' and `member_category`='REGULAR MEMBER' ");
 							$jumpage = $query->num_rows;
 							if($jumpage > 0):
 										$row = $query->fetch_assoc();
-										$query2 = $db->query("SELECT `tokenmember`,`status` FROM `member` WHERE `id`='".$row['id']."' and `password` = '$passwordNew' and `member_category`='REGULAR MEMBER' ");
-										$jumpage2 = $query2->num_rows;
-										if($jumpage2 > 0):
-												
-												$row2 = $query2->fetch_assoc();
-												if($row2['status']=="Active"):
-														$_SESSION['user_token'] = $row2['tokenmember'];
-														$_SESSION['user_statusmember'] = "REGULAR MEMBER";
-														echo'<script type="text/javascript">window.location="'.$SITE_URL.'my-account"</script>';	
-															
-												else:
-														$_SESSION['error_msg']='login-failed2';
-														echo'<script type="text/javascript">window.location="'.$SITE_URL.'index"</script>';	
-												endif;					
-												
+										if($row['activation_status'] == '1'):
+											$query2 = $db->query("SELECT `tokenmember`,`status` FROM `member` WHERE `id`='".$row['id']."' and `password` = '$passwordNew' and `member_category`='REGULAR MEMBER' ");
+											$jumpage2 = $query2->num_rows;
+											if($jumpage2 > 0):
+													
+													$row2 = $query2->fetch_assoc();
+													if($row2['status']=="Active"):
+															$_SESSION['user_token'] = $row2['tokenmember'];
+															$_SESSION['user_statusmember'] = "REGULAR MEMBER";
+															echo'<script type="text/javascript">window.location="'.$SITE_URL.'my-account"</script>';	
+																
+													else:
+															$_SESSION['error_msg']='login-failed2';
+															echo'<script type="text/javascript">window.location="'.$SITE_URL.'index"</script>';	
+													endif;					
+													
+											else:
+												$_SESSION['error_msg']='login-failed';
+												echo'<script type="text/javascript">window.location="'.$SITE_URL.'index"</script>';					
+											endif;
 										else:
-											$_SESSION['error_msg']='login-failed';
+											$_SESSION['error_msg']='activationnotdone';
 											echo'<script type="text/javascript">window.location="'.$SITE_URL.'index"</script>';					
-										endif;			
+										endif;	
 							else:
 								$_SESSION['error_msg']='login-failed';
 								echo'<script type="text/javascript">window.location="'.$SITE_URL.'index"</script>';			
