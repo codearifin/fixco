@@ -1195,14 +1195,9 @@
 		                        endif;
 		                echo '</div><!-- .brand -->
 		                        <div class="pfb-carousel-wrap">
-		                            <div class="pfb-carousel">
-		                                <div class="item">
-		                                    <a href=""><img src="images/ads/prod-ads-1.jpg" alt="ADS TITLE HERE" class="lazyload" data-expand="-10"></a>
-		                                </div><!-- .item -->
-		                                <div class="item">
-		                                    <a href=""><img src="images/ads/prod-ads-2.jpg" alt="ADS TITLE HERE" class="lazyload" data-expand="-10"></a>
-		                                </div><!-- .item -->
-		                            </div><!-- .pfb-carousel -->
+		                            <div class="pfb-carousel">';
+		                            getproductescalatorbanner($row['id']);
+								echo '</div><!-- .pfb-carousel -->
 		                        </div><!-- .pfb-carousel-wrap -->
 		                    </div><!-- .pfb-sidebar -->';
 
@@ -1219,6 +1214,20 @@
 		else:
 			echo'<div class="notfound">Record not found.</div>';
 		endif;	
+	}
+
+	function getproductescalatorbanner($idheader){
+		global $db;
+		$query = $db->query("SELECT `name`,`link`,`banner_image` FROM `product_escalator_banner` WHERE `idheader` = '$idheader' ORDER BY `sortnumber` DESC") or die($db->error);
+		$jumpage = $query->num_rows;
+
+		if($jumpage>0):
+			while($row = $query->fetch_assoc()):
+				echo '<div class="item">
+                            <a href="'.$row['link'].'"><img src="'.$GLOBALS['UPLOAD_FOLDER'].$row['banner_image'].'" alt="'.$row['name'].'" class="lazyload" data-expand="-10"></a>
+		              </div><!-- .item -->';
+			endwhile;
+		endif;
 	}
 
 	function getproductlistlantainew($idlantai,$type3){
@@ -5125,8 +5134,12 @@
 
 		                    	echo'<div class="btn-wrap">';
 							echo getbuttonbeliprod($row['id']);
+							echo '<br><br>';
+							$idprod = $row['id'];
+							$query_prodetail = $db->query("SELECT `stock` FROM `product_detail` WHERE `publish` = 1 and `idproduct_header` = '$idprod' ") or die($db->error);
+							$product_detail = $query_prodetail->fetch_assoc();
+							echo '<p style="color:#4a4a4a; margin:auto; text-align: center;">'.$product_detail['stock'].' item left</p>';
 						echo'</div><!-- .btn-wrap -->';
-
 		            echo'</div><!-- .ctab-content -->';
 		        echo '</div><!-- .item -->';
 			endif; 	
@@ -5136,7 +5149,7 @@
 	function flashsaleenddate(){
 		global $db;
 		$end_date = "";
-		$query_header = $db->query("SELECT `end_date` FROM `flash_sale_schedule` WHERE CURRENT_TIMESTAMP BETWEEN `start_date` AND `end_date`");
+		$query_header = $db->query("SELECT CONVERT_TZ(`end_date`, @@session.time_zone, '+0:00') `end_date` FROM `flash_sale_schedule` WHERE CURRENT_TIMESTAMP BETWEEN `start_date` AND `end_date`");
 		$jumpage_header = $query_header->num_rows;
 
 		if($jumpage_header>0):
@@ -5146,6 +5159,42 @@
 		endif;
 
 		return $end_date;
+	}
+
+	function getrfqimage(){
+		global $db;
+		$query = $db->query("SELECT `name`,`image` FROM `quotation_index` WHERE `publish` = 1");
+		$jumpage = $query->num_rows;
+
+		if($jumpage>0):
+			while($row = $query->fetch_assoc()):
+				echo '<img src="'.$GLOBALS['UPLOAD_FOLDER'].$row['image'].'" alt="'.$row['name'].'">';
+			endwhile;
+		endif;
+	}
+
+	function getrfqbackgroundcolor(){
+		global $db;
+		$query = $db->query("SELECT `background_color` FROM `quotation_index` WHERE `publish` = 1");
+		$jumpage = $query->num_rows;
+
+		if($jumpage>0):
+			while($row = $query->fetch_assoc()):
+				echo $row['background_color'];
+			endwhile;
+		endif;
+	}
+
+	function getrfqdescription(){
+		global $db;
+		$query = $db->query("SELECT `description` FROM `quotation_index` WHERE `publish` = 1");
+		$jumpage = $query->num_rows;
+
+		if($jumpage>0):
+			while($row = $query->fetch_assoc()):
+				echo $row['description'];
+			endwhile;
+		endif;
 	}
 
 	

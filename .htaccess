@@ -216,6 +216,9 @@ RewriteRule ^checkout-quotation-list/([^/]*)/?$			 include/checkout-quotation-li
 RewriteRule ^quotation-request/?$ 					 	 quotation-request.php
 RewriteRule ^do-quotation-request/?$ 					 include/do-quotation-request.php
 
+#member activation
+RewriteRule ^activate/([^/]*)/?$ 					 	 include/member-activation.php?membertoken=$1
+
 #affiliate url
 RewriteRule ^affiliate/([^/]*)/?$ 					 	 affiliate-checkstatus.php?token=$1
 

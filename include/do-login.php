@@ -64,7 +64,7 @@
 														$_SESSION['error_msg']='login-failed2';
 														echo'<script type="text/javascript">window.location="'.$SITE_URL.'index"</script>';	
 												endif;					
-										
+												
 										else:
 											$_SESSION['error_msg']='login-failed';
 											echo'<script type="text/javascript">window.location="'.$SITE_URL.'index"</script>';					

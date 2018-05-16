@@ -6,10 +6,10 @@ $mail = new PHPMailer;
 //$mail->SMTPDebug = 3;                                 			 // Enable verbose debug output
 $mail->isSMTP();                                      			 // Set mailer to use SMTP
 $mail->Mailer = "smtp";
-$mail->Host = 'mail.smtp2go.com';  					  			 // Specify main and backup SMTP servers
+$mail->Host = 'smtp.gmail.com';  					  			 // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               			 // Enable SMTP authentication
-$mail->Username = 'cs@fixcomart.com';         			 // SMTP username
-$mail->Password = 'F1xc0#234';                			 		// SMTP password
+$mail->Username = 'smtp@nukegraphic.com';         			 // SMTP username
+$mail->Password = 'kivkyawxqrscadcq';                			 		// SMTP password
 $mail->SMTPSecure = 'tls';                            			 // Enable TLS encryption, `ssl` also accepted ssl = 465 tls = 587
 $mail->Port = 587; 											// 8025, 587 and 25 can also be used. Use Port 465 for SSL.
 //$mail->Port = 465;                                     			 // TCP port to connect to

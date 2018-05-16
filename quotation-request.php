@@ -12,7 +12,7 @@ if(isset($_SESSION['user_token'])){
         }
 
     }
-}else{    
+}else{
     $_SESSION['error_msg']='login-first';
     echo '<script type="text/javascript">setInterval(function(){ window.location="'.$GLOBALS['SITE_URL'].'index"; }, 3000);</script>';
 }
@@ -91,7 +91,7 @@ if(isset($_SESSION['user_token'])){
                                 </div><!-- .grid-child -->
                                 <div class="grid-child n-1-1per1 n-no-margin-bottom">
                                     <div class="form-group">
-                                        <div class="clone_dropzone" name="image[]" id="upload-0">
+                                        <div class="clone_dropzone" name="file" id="upload-0">
                                             <div class="dropzone-intro">
                                                 <h3><span class="fa fa-image icon"></span><span class="text">Unggah Gambar Produk di Sini</span></h3>
                                             </div><!-- .dropzone-intro -->
@@ -150,7 +150,7 @@ if(isset($_SESSION['user_token'])){
                                     </div><!-- .grid-child -->
                                     <div class="grid-child n-1-1per1 n-no-margin-bottom">
                                         <div class="form-group">
-                                            <div class="dropzone" name="image[]" id="upload-1">
+                                            <div class="dropzone" name="file" id="upload-1">
                                                 <div class="dropzone-intro">
                                                     <h3><span class="fa fa-image icon"></span><span class="text">Unggah Gambar Produk di Sini</span></h3>
                                                 </div><!-- .dropzone-intro -->
@@ -249,6 +249,12 @@ if(isset($_SESSION['user_token'])){
                     this.on("removedfile", function () {
                         $("#" + dClickable).show();
                     });
+
+                    this.on("sending",function(file, xhr, formData){
+                        formData.append('file',file.file);
+                        formData.append('name',file.name);
+                        formData.append('size',file.size);
+                    });
                 }
 
                 // Rest of the configuration equal to all dropzones
@@ -327,6 +333,12 @@ if(isset($_SESSION['user_token'])){
                     });
                     this.on("removedfile", function () {
                         $("#" + dClickable).show();
+                    });
+
+                    this.on("sending",function(data,xhr,formData){
+                        formData.append('file',file.file);
+                        formData.append('name',file.name);
+                        formData.append('size',file.size);
                     });
                 }
             }

@@ -80,13 +80,13 @@
         <div class="row">
             <div class="grid-child n-768-2per5 n-768-no-margin-bottom">
                 <h2 class="ngc-title">
-                    <img src="images/request-quotation.png" alt="REQUEST FOR QUOTATION">
+                    <?php getrfqimage(); ?>
                 </h2>
-                <p class="ngc-intro">Kirim Permintaan Sesuai Kebutuhan Bisnis Anda dan Temukan Penawaran dengan Harga Terbaik.</p>
+                <p class="ngc-intro"><?php getrfqdescription(); ?></p>
                 <a href="" class="btn btn-red bigger n-no-margin">LEBIH LANJUT</a>
             </div><!-- .grid-child -->
             <div class="grid-child n-768-3per5 n-no-margin-bottom">
-                <div class="request-quotation-box">
+                <div class="request-quotation-box" style="background-color:<?php getrfqbackgroundcolor(); ?>;">
                     <h2 class="ngc-title">Dapatkan Penawaran Terbaik</h2>
                     <form action="<?php echo $GLOBALS['SITE_URL']; ?>quotation-request" class="general-form quotation-form" method="post">
                         <div class="form-group">
@@ -205,7 +205,7 @@
                 <?php bloglistindex(); ?>
 
                 <div class="n-align-center">
-                    <a href="blog" class="btn btn-red bigger n-no-margin">LIHAT LEBIH</a>
+                    <a href="<?php echo $GLOBALS['SITE_URL'].'blog'; ?>" class="btn btn-red bigger n-no-margin">LIHAT LEBIH</a>
                 </div>
             </div><!-- .index-blog -->
 

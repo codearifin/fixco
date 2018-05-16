@@ -192,7 +192,7 @@
 
                                            
                                            <p>Please click link below to activate your account</p>
-                                           <a href="<?php $GLOBALS['SITE_URL'].'activate/'.$kode_token ?>">Activate Account</a>
+                                           <a href="<?php echo $GLOBALS['SITE_URL'].'activate/'.$kode_token ?>"><span>Activate Account</span></a>
 
                                            <p>&nbsp;</p>
 

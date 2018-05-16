@@ -10,6 +10,8 @@ require('../config/myconfig.php');
 
 if(isset($_POST['submit'])){
 	global $db;
+	print_r(json_encode($_POST));
+	print_r(json_encode($_FILES));die;
 	$user_token = $_SESSION['user_token'];
 	$query_user = $db->query("SELECT `id`,`email`,`name`,`lastname` FROM `member` WHERE `tokenmember` = '$user_token'") or die($db->error);
 	$user = $query_user->fetch_assoc();
@@ -20,8 +22,8 @@ if(isset($_POST['submit'])){
 	date_default_timezone_set('Asia/Jakarta');
 	$dateNow = date("Y-m-d H:i:s");
 
-	$query_header = $db->query("INSERT INTO `quotation_header` (`creator_name`,`creator_email`,`publish`, `modified_datetime`) VALUES('$user_name', '$user_email', 1, '$dateNow')") or die($db->error);
-	$get_header_id = $db->query("SELECT `id` FROM `quotation_header` WHERE `modified_datetime` = '$dateNow' AND `creator_email` = '$user_email'");
+	$query_header = $db->query("INSERT INTO `quotation_header` (`creator_name`,`creator_email`,`publish`, `created_date`) VALUES('$user_name', '$user_email', 1, '$dateNow')") or die($db->error);
+	$get_header_id = $db->query("SELECT `id` FROM `quotation_header` WHERE `created_date` = '$dateNow' AND `creator_email` = '$user_email'");
 	$header_id_arr = $get_header_id->fetch_assoc();
 	$header_id = $header_id_arr['id'];
 
