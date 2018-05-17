@@ -33,7 +33,7 @@ function upload_myfile($name,$folder,$rename_to,$i){
 
   $image_name     = $_FILES[$name]['name'][$i];                       // get name
 
-  $image_baru     = multi_upload($image,$image_name,$tmpt_folder,$rename_to);
+  $image_baru     = multi_upload($image,$image_name,$tmpt_folder,$rename_to,$i);
 
   if($image_baru){
 
@@ -47,9 +47,9 @@ function upload_myfile($name,$folder,$rename_to,$i){
 
 }
 
-function multi_upload($img, $img_, $tmpt_folder, $rename_to){
+function multi_upload($img, $img_, $tmpt_folder, $rename_to,$i){
 
-	$imgbaru = $rename_to."-".date("Y-m-d-His");
+	$imgbaru = $rename_to."-".date("Y-m-d-His").$i;
 
 	$extG    = get_file_extension($img_);
 
