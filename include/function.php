@@ -1210,9 +1210,7 @@
 	                 echo '</div><!-- .pfb-content -->';
                  echo '</div><!-- .pf-body -->';
              echo '</div><!-- .product-floor -->';
-			endwhile; 
-		else:
-			echo'<div class="notfound">Record not found.</div>';
+			endwhile;
 		endif;	
 	}
 
@@ -5079,7 +5077,7 @@
 		global $db;
 		$id_header="";
 		$id_product = Array();
-		$query_header = $db->query("SELECT `id` FROM `flash_sale_schedule` WHERE CURRENT_TIMESTAMP BETWEEN `start_date` AND `end_date`");
+		$query_header = $db->query("SELECT `id` FROM `flash_sale_schedule` WHERE (CURRENT_TIMESTAMP BETWEEN `start_date` AND `end_date`) AND `publish` = 1");
 		$jumpage_header = $query_header->num_rows;
 
 		if($jumpage_header>0):
@@ -5149,13 +5147,15 @@
 	function flashsaleenddate(){
 		global $db;
 		$end_date = "";
-		$query_header = $db->query("SELECT CONVERT_TZ(`end_date`, @@session.time_zone, '+0:00') `end_date` FROM `flash_sale_schedule` WHERE CURRENT_TIMESTAMP BETWEEN `start_date` AND `end_date`");
+		$query_header = $db->query("SELECT CONVERT_TZ(`end_date`, @@session.time_zone, '+0:00') `end_date` FROM `flash_sale_schedule` WHERE (CURRENT_TIMESTAMP BETWEEN `start_date` AND `end_date`) AND `publish` = 1");
 		$jumpage_header = $query_header->num_rows;
 
 		if($jumpage_header>0):
 			while($row = $query_header->fetch_assoc()):
 				$end_date = $row['end_date'];
 			endwhile;
+		else:
+			$end_date = '0000-01-01 00:00:00';
 		endif;
 
 		return $end_date;
@@ -5193,6 +5193,30 @@
 		if($jumpage>0):
 			while($row = $query->fetch_assoc()):
 				echo $row['description'];
+			endwhile;
+		endif;
+	}
+
+	function checkrfq(){
+		global $db;
+		$query = $db->query("SELECT * FROM `quotation_index`");
+		$jumpage = $query->num_rows;
+
+		if($jumpage>0):
+			while($row = $query->fetch_assoc()):
+				return $row['publish'];
+			endwhile;
+		endif;
+	}
+	
+	function getquotationrequestdesc(){
+	    global $db;
+		$query = $db->query("SELECT `quotation_request_description` FROM `quotation_index` WHERE `publish` = 1");
+		$jumpage = $query->num_rows;
+
+		if($jumpage>0):
+			while($row = $query->fetch_assoc()):
+				echo $row['quotation_request_description'];
 			endwhile;
 		endif;
 	}

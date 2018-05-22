@@ -164,17 +164,7 @@ if(isset($_SESSION['user_token'])){
                             <input type="submit" class="btn btn-red" value="LANJUT" name="submit" />
                             <!-- <a href="" class="btn btn-red">LANJUT</a> -->
                             <div class="why-fixcomart">
-                                <h3 class="ngc-title">Mengapa Anda Harus Menggunakan Fixcomart Sebagai Purchasing Tools Anda?</h3>
-                                <div class="nuke-wysiwyg">
-                                    <p>Donut pastry apple pie cupcake wafer. Marzipan pudding danish cheesecake sesame snaps dragée tart.</p>
-                                    <ul>
-                                        <li>Anda dapat mengundang supplier favorit Anda secara exclusive untuk memberikan penawaran atas permintaan Anda</li>
-                                        <li>Membandingkan semua penawaran dengan mudah</li>
-                                        <li>Cepat, efisien, dan menghemat waktu Anda karena tidak perlu melakukan pengecekan email satu per satu</li>
-                                        <li>Pantau semua kegiatan permintaan dan penawaran Anda dalam 1 sistem</li>
-                                        <li>Data disimpan hingga bertahun-tahun</li>
-                                    </ul>
-                                </div><!-- .nuke-wysiwyg -->
+                                <?php getquotationrequestdesc(); ?>
                             </div><!-- .why-fixcomart -->
                         </div><!-- .process-request -->
                     </form>

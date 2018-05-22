@@ -552,7 +552,7 @@ $(document).ready(function() {
 
                                     echo '<a href="'.$upload_folder.$row[$val].'" class="nuke-fancied">
 
-                                            <img src = "'.$upload_folder.$row[$val].'" width="'.($width < 80 ? $width : 80).'" alt = "'.$row[$val].'" />
+                                            <img src = "'.$upload_folder.$row[$val].'" width="'.($width < 80 ? 80 : 80).'" alt = "'.$row[$val].'" />
 
                                           </a>';
 

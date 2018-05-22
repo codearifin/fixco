@@ -75,6 +75,8 @@
     </div><!-- .container -->
 </section><!-- .index-tab -->
 
+<?php $publish_rfq = checkrfq(); ?>
+<?php if($publish_rfq == 1): ?>
 <section class="section section-quotation">
     <div class="container">
         <div class="row">
@@ -128,6 +130,7 @@
         </div><!-- .row -->
     </div><!-- .container -->
 </section><!-- .section -->
+<?php endif; ?>
 
 
 

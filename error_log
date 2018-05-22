@@ -154,3 +154,11 @@ Stack trace:
   thrown in /home/ngcdemo/public_html/fixcomart/config/connection.php on line 19
 [06-May-2018 14:48:49 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/ngcdemo/public_html/fixcomart/product-list.php on line 173
 [06-May-2018 14:48:49 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/ngcdemo/public_html/fixcomart/product-list.php on line 173
+[17-May-2018 16:33:01 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/ngcdemo/public_html/dev/fixcomart/product-list.php on line 173
+[17-May-2018 16:33:01 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/ngcdemo/public_html/dev/fixcomart/product-list.php on line 173
+[17-May-2018 16:33:24 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/ngcdemo/public_html/dev/fixcomart/product-list.php on line 173
+[17-May-2018 16:33:24 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/ngcdemo/public_html/dev/fixcomart/product-list.php on line 173
+[18-May-2018 16:53:15 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/ngcdemo/public_html/dev/fixcomart/product-list.php on line 173
+[18-May-2018 16:53:16 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/ngcdemo/public_html/dev/fixcomart/product-list.php on line 173
+[21-May-2018 07:24:32 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/ngcdemo/public_html/dev/fixcomart/product-list.php on line 173
+[21-May-2018 07:24:32 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/ngcdemo/public_html/dev/fixcomart/product-list.php on line 173
