@@ -76,6 +76,8 @@
                 <a href="<?php echo $login_url;?>"><i class="fa fa-facebook"></i>&nbsp;&nbsp;Facebook</a>
                 <a href="<?php echo $authUrl;?>" class="last"><i class="fa fa-google-plus"></i>&nbsp;&nbsp;Google+</a>
             </div><!-- .social-login -->
+            <div class="separator"><span>Belum Mendaftar?</span></div>
+            <a href="<?php echo $GLOBALS['SITE_URL'];?>/register" class="btn btn-blue no-margin" style="width:100%; text-align:center;">REGISTER AS MEMBER</a>
         </form>
     </div><!-- .popup-content -->
 </div><!-- .popup-wrap -->

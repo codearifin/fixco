@@ -43,12 +43,33 @@ if(empty($page)){
 	$posisi= (($page-1) * $batas ); 
 }
 
+if(isset($_POST['member_type'])){
+	$_SESSION['member_type'] = $_POST['member_type'];
+	$member_type = $_SESSION['member_type'];
+}else{
+	if(isset($_SESSION['member_type'])){
+		$member_type = $_SESSION['member_type'];
+	}else{
+		$member_type = "";
+	}
+}
+
 //main Query
-if($keyword!=""):	
-	$query = $db->query("SELECT *,DATE_FORMAT(`date`, '%d/%m/%Y %H:%i:%s') as tgl FROM `member` WHERE 1=1
+if($keyword!=""):
+	if($member_type != ""){
+		$query = $db->query("SELECT *,DATE_FORMAT(`date`, '%d/%m/%Y %H:%i:%s') as tgl FROM `member` WHERE 1=1
+	and ( `name` LIKE '%$keyword%' or `lastname` LIKE '%$keyword%' or `email` LIKE '%$keyword%' ) AND `member_category` LIKE '%$member_type%' ORDER BY `id` DESC LIMIT $posisi,$batas") or die($db->error);
+	}else{
+		$query = $db->query("SELECT *,DATE_FORMAT(`date`, '%d/%m/%Y %H:%i:%s') as tgl FROM `member` WHERE 1=1
 	and ( `name` LIKE '%$keyword%' or `lastname` LIKE '%$keyword%' or `email` LIKE '%$keyword%' ) ORDER BY `id` DESC LIMIT $posisi,$batas") or die($db->error);
+	}
 else:
-	$query = $db->query("SELECT *,DATE_FORMAT(`date`, '%d/%m/%Y %H:%i:%s') as tgl FROM `member` WHERE 1=1 ORDER BY `id` DESC LIMIT $posisi,$batas");
+	if($member_type != ""){
+		$query = $db->query("SELECT *,DATE_FORMAT(`date`, '%d/%m/%Y %H:%i:%s') as tgl FROM `member` WHERE 1=1 AND `member_category` LIKE '%$member_type%' ORDER BY `id` DESC LIMIT $posisi,$batas");
+	}else{
+		$query = $db->query("SELECT *,DATE_FORMAT(`date`, '%d/%m/%Y %H:%i:%s') as tgl FROM `member` WHERE 1=1 ORDER BY `id` DESC LIMIT $posisi,$batas");
+	}
+	
 endif;
 ?>
 <link href="eccomerce/eccomerce.css" rel="stylesheet" type="text/css" />
@@ -78,6 +99,20 @@ $(document).ready(function() {
 				</form>
 			</div><!-- .cm-top -->
 			<div class="meta-top clearfix">
+				<form action="member_list.php" method="post">
+
+                	<span style="display:inline-block; width:130px; float:left;">Filter by member type : </span> 
+
+					<select name="member_type">
+						<option value="">All</option>
+						<option value="REGULAR MEMBER">REGULAR MEMBER</option>
+						<option value="CORPORATE MEMBER">CORPORATE MEMBER</option>
+					</select>
+
+					<input type="submit" value="FIND" class="cari-btntgl" />
+
+                </form>
+                <br>
 				<a href="lib/export-member-list.php" title="" class="add-btn left">Export to Excel</a>
                 
                 <div class="right paging-meta">
@@ -89,11 +124,21 @@ $(document).ready(function() {
 							<select class="cus-select" onChange="MM_jumpMenu('parent',this,0)">
 								<?php
 									if($keyword!=""):
-										$sql2 = $db->query("SELECT `id` FROM `member` WHERE 1=1 and 
+										if($member_type != ""){
+											$sql2 = $db->query("SELECT `id` FROM `member` WHERE 1=1 and 
+										( `name` LIKE '%$keyword%' or `lastname` LIKE '%$keyword%' or `email` LIKE '%$keyword%' ) AND `member_category` LIKE '%$member_type%' ORDER BY `id` DESC");
+										}else{
+											$sql2 = $db->query("SELECT `id` FROM `member` WHERE 1=1 and 
 										( `name` LIKE '%$keyword%' or `lastname` LIKE '%$keyword%' or `email` LIKE '%$keyword%' ) ORDER BY `id` DESC");
+										}
 										
 									else:
-										$sql2 = $db->query("SELECT `id` FROM `member` WHERE 1=1 ORDER BY `id` DESC");
+										if($member_type != ""){
+											$sql2 = $db->query("SELECT `id` FROM `member` WHERE 1=1 AND `member_category` LIKE '%$member_type%' ORDER BY `id` DESC");
+										}else{
+											$sql2 = $db->query("SELECT `id` FROM `member` WHERE 1=1 ORDER BY `id` DESC");	
+										}
+										
 									endif;
 									$jmldata = $sql2->num_rows;
 									$jmlhalaman = ceil($jmldata/$batas); 
@@ -200,5 +245,5 @@ $(document).ready(function() {
 			</div><!-- .cm-mid -->
 		</div><!-- .cms-main-content -->
 	</div><!-- #cms-content -->
-	
+	<script>$("select[name='member_type']").val("<?php echo $member_type;?>");</script>
 <?php include("footer.php"); ?>

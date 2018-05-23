@@ -331,11 +331,12 @@ $(document).ready(function() { // execute when window open
     });
 
     $('.below-banner-carousel .wrap').slick({
-		dots: true,
-		arrows: false,
+		dots: false,
+		arrows: true,
 		slidesToShow: 4,
 		slidesToScroll: 1,
 		infinite: true,
+		centerMode: true,
 		responsive: [
 		    {
 		      breakpoint: 768,
@@ -377,19 +378,6 @@ $(document).ready(function() { // execute when window open
 			$(this).next("ul").slideDown("fast");
 		}
 		e.preventDefault();
-	});
-
-	// added 27 feb 2018
-	$(".owl-flashtab").owlCarousel({
-		autoPlay: 5000,
-		items : 5,
-		itemsDesktop : [1190,5],
-		itemsDesktopSmall : [990,4],
-		itemsTablet: [760,3],
-		itemsTabletSmall : [540, 2],
-        itemsMobile : [300, 1],
-		navigation: false,
-		pagination: true
 	});
 
 	// featured carousel
@@ -494,6 +482,44 @@ $(document).ready(function() { // execute when window open
 		    },
 		    {
 		      breakpoint: 540,
+		      settings: {
+		        slidesToShow: 1
+		      }
+		    }
+		]
+	});
+
+	$('.flash-carousel').slick({
+		dots: false,
+		arrows: true,
+		slidesToShow: 5,
+		slidesToScroll: 1,
+		infinite: true,
+		adaptiveHeight: true,
+		autoplay: true,
+  		autoplaySpeed: 5000,
+  		centerMode: true,
+		responsive: [
+		    {
+		      breakpoint: 1200,
+		      settings: {
+		        slidesToShow: 4
+		      }
+		    },
+		    {
+		      breakpoint: 992,
+		      settings: {
+		        slidesToShow: 3
+		      }
+		    },
+		    {
+		      breakpoint: 768,
+		      settings: {
+		        slidesToShow: 2
+		      }
+		    },
+		    {
+		      breakpoint: 414,
 		      settings: {
 		        slidesToShow: 1
 		      }

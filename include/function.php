@@ -1184,17 +1184,12 @@
 
 
 				echo '<div class="product-floor">';
-					echo '<div class="pf-heading">
+					echo '<div class="pf-heading hideme">
 							<h2 class="f-pb">'.$row['title'].'</h2>
 						  </div><!-- .pf-heading -->';
 					echo '<div class="pf-body">';
                 		echo '<div class="pfb-sidebar">
-		                        <div class="brand">';
-		                        if($row['brand_image']<>''): 
-		                        	echo'<img src="'.$GLOBALS['UPLOAD_FOLDER'].''.$row['brand_image'].'" alt="'.$row['title'].'" />'; 
-		                        endif;
-		                echo '</div><!-- .brand -->
-		                        <div class="pfb-carousel-wrap">
+		                		<div class="pfb-carousel-wrap">
 		                            <div class="pfb-carousel">';
 		                            getproductescalatorbanner($row['id']);
 								echo '</div><!-- .pfb-carousel -->
@@ -1253,7 +1248,11 @@
                                 <a href="'.$GLOBALS['SITE_URL'].'product-detail/'.replace($nameprod).'/'.$row['id_product_list'].'"><img src="'.$GLOBALS['UPLOAD_FOLDER'].''.$imageprod.'" alt="'.$titleprod.'" class="lazyload" data-expand="-10"></a>
                             </div><!-- .ngc-media -->
                             <div class="ngc-text">
-                                <h3 class="f-pr"><a href="'.$GLOBALS['SITE_URL'].'product-detail/'.replace($nameprod).'/'.$row['id_product_list'].'">'.$nameprod.'</a></h3>';
+                                <h3 class="f-pr"><a href="'.$GLOBALS['SITE_URL'].'product-detail/'.replace($nameprod).'/'.$row['id_product_list'].'">'.substr($nameprod,0,35);
+                                if(strlen($nameprod) > 35){
+                                	echo '...';
+                                }
+                                echo '</a></h3>';
 
                                 if($discountprod>0):
 								
@@ -2198,7 +2197,11 @@
                                   $output.='<div class="ctab-content-prod">';
 								  
                                   $output.='<span class="prod-brand f-yellow f-psb">'.generalselect("category","name"," `id` = '".$row['idkat']."' ").'</span>';
-                                  $output.='<h3 class="f-psb"><a href="'.$GLOBALS['SITE_URL'].'product-detail/'.replace($row['name']).'/'.$row['id'].'" title="'.$row['name'].'">'.substr($row['name'],0,50).'</a></h3>';
+                                  $output.='<h3 class="f-psb"><a href="'.$GLOBALS['SITE_URL'].'product-detail/'.replace($row['name']).'/'.$row['id'].'" title="'.$row['name'].'">'.substr($row['name'],0,35);
+                                  if(strlen($row['name']) > 35){
+                                  	$output.='...';
+                                  }
+                                  $output.='</a></h3>';
                                   $output.='<div class="prod-price-wrap">';
                               
 							                   	if($row['discount_value']>0):
@@ -5219,6 +5222,88 @@
 				echo $row['quotation_request_description'];
 			endwhile;
 		endif;
+	}
+
+	function getflashsalebgimg(){
+		global $db;
+		$end_date = "";
+		$query_header = $db->query("SELECT `background_image` FROM `flash_sale_schedule` WHERE (CURRENT_TIMESTAMP BETWEEN `start_date` AND `end_date`) AND `publish` = 1");
+		$jumpage_header = $query_header->num_rows;
+
+		if($jumpage_header>0):
+			while($row = $query_header->fetch_assoc()):
+				$background_image = $row['background_image'];
+			endwhile;
+		endif;
+
+		return $background_image;
+	}
+
+	function getsiteurl(){
+		return $GLOBALS['SITE_URL'];
+	}
+
+	function corporatejoinheader(){
+		global $db;
+		$query = $db->query("SELECT `name`,`description` FROM `corporate_join_header` WHERE `publish` = 1") or die($db->error);
+		$jumpage = $query->num_rows;
+
+		if($jumpage > 0):
+			while($row = $query->fetch_assoc()):
+				echo '<h2 class="f-pb">
+                        <span class="hat">JOIN US</span>
+                        '.$row['name'].'
+                    </h2>
+                    <p class="f-pr">'.$row['description'].'</p>';
+			endwhile;
+		endif;
+	}
+
+	function corporatejoindetail(){
+		global $db;
+		$query_header = $db->query("SELECT `id` FROM `corporate_join_header` WHERE `publish` = 1") or die($db->error);
+		$row_header = $query_header->fetch_assoc();
+		$id_header = $row_header['id'];
+
+		$query = $db->query("SELECT `name`,`description`,`image` FROM `corporate_join_detail` WHERE `publish` = 1 AND `id_header` = $id_header") or die($db->error);
+		$jumpage = $query->num_rows;
+
+		if($jumpage > 0):
+			while($row = $query->fetch_assoc()):
+				echo '<div class="grid-child n-540-1per2">
+			            <div class="item">
+			                <img src="'.$GLOBALS['UPLOAD_FOLDER'].$row['image'].'" alt="PUT TITLE HERE" class="lazyload" data-expand="-10">
+			                <div class="ngc-text">
+			                    <h3 class="f-pr">'.$row['name'].'</h3>
+			                    <p class="f-pr">'.$row['description'].'</p>
+			                </div><!-- .ngc-text -->
+			            </div><!-- .item -->
+			        </div><!-- .grid-child -->';
+			endwhile;
+		endif;
+	}
+
+	function checkcorporatejoin(){
+		global $db;
+		$query = $db->query("SELECT `publish` FROM `corporate_join_header`") or die($db->error);
+		$row = $query->fetch_assoc();
+
+		return $row['publish'];
+	}
+
+	function getcorporatejoinbgimg(){
+		global $db;
+		$end_date = "";
+		$query_header = $db->query("SELECT `background_image` FROM `corporate_join_header` WHERE `publish` = 1");
+		$jumpage_header = $query_header->num_rows;
+
+		if($jumpage_header>0):
+			while($row = $query_header->fetch_assoc()):
+				$background_image = $row['background_image'];
+			endwhile;
+		endif;
+
+		return $background_image;
 	}
 
 	

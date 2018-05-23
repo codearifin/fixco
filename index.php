@@ -50,26 +50,25 @@
     </div><!-- .container -->
 </section><!-- .below-banner-section -->
 
-<section class="section section-flashsale">
+<section class="section section-flashsale" style="background-image:url(uploads/<?php echo getflashsalebgimg(); ?>)">
     <div class="container">
         <div class="row">
             <div class="fs-heading">
                 <h2>Flash Sale</h2>
                 <div class="countdown-wrap">
-                    <p>Berakhir Dalam</p>
                     <ul id="fs-date" class="fs-countdown">
-                        <li><span class="days">00</span><p class="days_text">DAYS</p></li>
-                        <li class="seperator">:</li>
                         <li><span class="hours">00</span><p class="hours_text">HOURS</p></li>
                         <li class="seperator">:</li>
                         <li><span class="minutes">00</span><p class="minutes_text">MINS</p></li>
+                        <li class="seperator">:</li>
+                        <li><span class="seconds">00</span><p class="seconds_text">SECONDS</p></li>
                     </ul>
                 </div><!-- .countdown-wrap -->
             </div><!-- .fs-heading -->
             <div class="flash-carousel-wrap">
-                <div class="owl-flashtab">
+                <div class="flash-carousel">
                     <?php getflashsaleproduct(); ?>
-                </div><!-- .owl-flashtab -->
+                </div><!-- .flash-carousel -->
             </div><!-- .flash-carousel-wrap -->
         </div><!-- .row -->
     </div><!-- .container -->
@@ -218,7 +217,25 @@
 
 </section><!-- .index-product -->
 
-
+<?php if(checkcorporatejoin() == 1): ?>
+<section class="section join-corporate" style="background-image:url(uploads/<?php echo getcorporatejoinbgimg(); ?>)">
+    <div class="container">
+        <div class="row">
+            <div class="content">
+                <div class="jc-intro">
+                    <?php corporatejoinheader(); ?>
+                    <a href="<?php echo getsiteurl().'register-corporate'; ?>" class="btn btn-red">DAFTAR SEKARANG</a>
+                </div><!-- .jc-intro -->
+                <div class="jc-why">
+                    <div class="row medium-gutter same-height">
+                        <?php corporatejoindetail(); ?>
+                    </div><!-- .row -->
+                </div><!-- .jc-why -->
+            </div><!-- .content -->
+        </div><!-- .row -->
+    </div><!-- .container -->
+</section><!-- .section -->
+<?php endif; ?>
 
 <section class="footer-about">
 

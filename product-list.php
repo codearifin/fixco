@@ -44,7 +44,7 @@ if(isset($_SESSION['keyword_data'])): $keyword = $_SESSION['keyword_data']; $key
 if(isset($_GET['sidsubkat'])): $sidsubkat = $_GET['sidsubkat']; else: $sidsubkat = ''; endif;
 
 
-//get active brudchrumb
+//get active breadcrumb
 if($idsublevel > 0):
 	$namelistdata = generalselect("sub_level_category", "name"," `id` = '$idsublevel' and `publish` = 1 ");	
 	$idkatbrand = getidkatband($idsublevel);
@@ -134,7 +134,9 @@ elseif($keyword!=""):
 	$jumdata_cari = count($pecah_keyword);
 	if($jumdata_cari < 4){
 		for($iicari = 0; $iicari<$jumdata_cari; $iicari++){
-			$tmpdatacari_new.=" or `product`.`name` LIKE '%".$pecah_keyword[$iicari]."%' ";
+            if($pecah_keyword[$iicari] != ""){
+                $tmpdatacari_new.=" or `product`.`name` LIKE '%".$pecah_keyword[$iicari]."%' ";
+            }
 		}
 	}
 	
@@ -236,11 +238,11 @@ or die($db->error);
 
         	<div class="template-wrap">
 
-            	<ul class="top-bc-wrap">
+            	<!-- <ul class="top-bc-wrap"> -->
 
-                	<?php include("cart-list-link.php");?>
+                	<?php /*include("cart-list-link.php");*/ ?>
 
-                </ul><!-- .top-bc-wrap -->
+                <!-- </ul> --><!-- .top-bc-wrap -->
 
                 <h1 class="f-pb"><?php echo replacebr($namelistdata);?></h1>
 
