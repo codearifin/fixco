@@ -269,21 +269,6 @@
 </body>
 <script>
     $(document).ready(function(){
-        $('#fs-date').countdown({
-            date: '<?php echo flashsaleenddate(); ?>', // gmt + 0
-            day: 'DAY',
-            days: 'DAYS',
-            hour: 'HOUR',
-            hours: 'HOURS',
-            minute: 'MIN',
-            minutes: 'MINS',
-            second: 'SEC',
-            seconds: 'SECS'
-        }, function () {
-          //alert('Flash sale ended!');
-          $(".section-flashsale").hide();
-        });
-
         $(".category-section").addClass("home");
         $(document).on('click','.new-all-product-menu .content .main-category li.has-sub a', function(e){
             var getURL = $(this).attr("href");
@@ -305,6 +290,21 @@
         $('.autocomplete-quotation').autocomplete({
             lookup: searchresultsArray,
             appendTo: ".quotation-input-form"
+        });
+
+        $('#fs-date').countdown({
+            date: '<?php echo flashsaleenddate(); ?>', // gmt + 0
+            day: 'DAY',
+            days: 'DAYS',
+            hour: 'HOUR',
+            hours: 'HOURS',
+            minute: 'MIN',
+            minutes: 'MINS',
+            second: 'SEC',
+            seconds: 'SECS'
+        }, function () {
+          //alert('Flash sale ended!');
+          $(".section-flashsale").hide();
         });
     });
 </script>

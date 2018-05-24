@@ -16,9 +16,9 @@ $SITE_NAME 			= "Fixco Mart";
 
 
 
-$SITE_URL  			= "http://192.168.0.129/fixcomart/";
+$SITE_URL  			= "http://localhost/fixcomart/";
 
-$WEBSITE_NAME 		= "http://192.168.0.129/fixcomart"; //add by RNT 27 nov 15
+$WEBSITE_NAME 		= "http://localhost/fixcomart"; //add by RNT 27 nov 15
 
 
 
