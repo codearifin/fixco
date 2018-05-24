@@ -42,11 +42,13 @@
 
 <section class="below-banner-section">
     <div class="container">
-        <div class="below-banner-carousel">
-            <div class="wrap">
-               <?php banneradshome();?>
-            </div><!-- .wrap -->
-        </div><!-- .below-banner-carousel -->
+        <div class="carousel-wrapper">
+            <div class="below-banner-carousel">
+                <div class="wrap">
+                   <?php banneradshome();?>
+                </div><!-- .wrap -->
+            </div><!-- .below-banner-carousel -->
+        </div><!-- .carousel-wrapper -->
     </div><!-- .container -->
 </section><!-- .below-banner-section -->
 
@@ -74,59 +76,61 @@
     </div><!-- .container -->
 </section><!-- .index-tab -->
 
-<?php $publish_rfq = checkrfq(); ?>
-<?php if($publish_rfq == 1): ?>
-<section class="section section-quotation">
+<?php if(checkrfq() == 1): ?>
+<section class="section section-quotation-new">
     <div class="container">
-        <div class="row">
-            <div class="grid-child n-768-2per5 n-768-no-margin-bottom">
-                <h2 class="ngc-title">
+        <div class="content">
+            <div class="top">
+                <div class="white-logo">
                     <?php getrfqimage(); ?>
-                </h2>
-                <p class="ngc-intro"><?php getrfqdescription(); ?></p>
-                <a href="" class="btn btn-red bigger n-no-margin">LEBIH LANJUT</a>
-            </div><!-- .grid-child -->
-            <div class="grid-child n-768-3per5 n-no-margin-bottom">
-                <div class="request-quotation-box" style="background-color:<?php getrfqbackgroundcolor(); ?>;">
-                    <h2 class="ngc-title">Dapatkan Penawaran Terbaik</h2>
-                    <form action="<?php echo $GLOBALS['SITE_URL']; ?>quotation-request" class="general-form quotation-form" method="post">
-                        <div class="form-group">
-                            <label class="f-pb">Nama Produk</label>
-                            <div class="input-wrap has-icon quotation-input-form">
-                                <input type="text" name="nama_produk" class="autocomplete-quotation" placeholder="Masukkan Nama Produk yang anda minta… contoh: Tekiro Box Fullset">
-                                <span class="fa fa-sticky-note icon"></span>
-                            </div><!-- .input-wrap -->
-                        </div><!-- .form-group -->
-                        <div class="row medium-gutter">
-                            <div class="grid-child n-1-1per2 n-540-1per4 n-no-margin-bottom">
-                                <div class="form-group n-no-margin-bottom">
-                                    <label class="f-pb">Jumlah</label>
-                                    <div class="input-wrap">
-                                        <input type="number" name="jumlah" value="100">
-                                    </div><!-- .input-wrap -->
-                                </div><!-- .form-group -->
-                            </div><!-- .grid-child -->
-                            <div class="grid-child n-1-1per2 n-540-1per4 n-no-margin-bottom">
-                                <div class="form-group n-no-margin-bottom">
-                                    <label class="f-pb">Satuan</label>
-                                    <div class="input-wrap">
-                                        <div class="select-style">
-                                            <select name="satuan">
-                                                <?php satuanquotation(); ?>
-                                            </select>
-                                        </div><!-- .select-style -->
-                                    </div><!-- .input-wrap -->
-                                </div><!-- .form-group -->
-                            </div><!-- .grid-child -->
-                            <div class="grid-child n-1-1per1 n-540-1per2 n-no-margin-bottom">
-                                <input type="submit" class="btn btn-red" value="BUAT PERMINTAAN" name="submit" />
-                                <!-- <a href="quotation-request.php" class="btn btn-yellow">BUAT PERMINTAAN</a> -->
-                            </div><!-- .grid-child -->
-                        </div><!-- .row -->
-                    </form><!-- .general-form -->
-                </div><!-- .request-quotation-box -->
-            </div><!-- .grid-child -->
-        </div><!-- .row -->
+                </div><!-- .white-logo -->
+                <h2 class="ngc-maintitle"><?php getrfqheadername(); ?></h2>
+                <p><?php getrfqdescription(); ?></p>
+                <?php getrfqcsimage(); ?>
+            </div><!-- .top -->
+            <div class="bottom" style="background-color:<?php getrfqbackgroundcolor(); ?>;">
+                <h2 class="ngc-title">Dapatkan Penawaran Terbaik</h2>
+                <form action="<?php echo $GLOBALS['SITE_URL']; ?>quotation-request" class="general-form quotation-form" method="post">
+                    <div class="form-group">
+                        <label class="f-pb">Nama Produk</label>
+                        <div class="input-wrap has-icon quotation-input-form">
+                            <input type="text" name="nama_produk" class="autocomplete-quotation" placeholder="Masukkan Nama produk yang diinginkan">
+                            <span class="fa fa-sticky-note icon"></span>
+                        </div><!-- .input-wrap -->
+                    </div><!-- .form-group -->
+                    <div class="row medium-gutter">
+                        <div class="grid-child n-1-1per2 n-540-1per4 n-768-1per2 n-no-margin-bottom">
+                            <div class="form-group n-no-margin-bottom">
+                                <label class="f-pb">Jumlah</label>
+                                <div class="input-wrap">
+                                    <input type="number" name="jumlah" value="100">
+                                </div><!-- .input-wrap -->
+                            </div><!-- .form-group -->
+                        </div><!-- .grid-child -->
+                        <div class="grid-child n-1-1per2 n-540-1per4 n-768-1per2 n-no-margin-bottom">
+                            <div class="form-group n-no-margin-bottom">
+                                <label class="f-pb">Satuan</label>
+                                <div class="input-wrap">
+                                    <div class="select-style">
+                                        <select name="satuan">
+                                            <?php satuanquotation(); ?>
+                                        </select>
+                                    </div><!-- .select-style -->
+                                </div><!-- .input-wrap -->
+                            </div><!-- .form-group -->
+                        </div><!-- .grid-child -->
+                        <div class="grid-child n-1-1per1 n-540-1per2 n-768-1per1 n-no-margin-bottom">
+                            <input type="submit" class="btn btn-blue" value="BUAT PERMINTAAN" name="submit" />
+                            <a href="<?php getrfqlink(); ?>" class="f-pb link-white">Apa Itu Request Quotation?</a>
+                            <!-- <a href="quotation-request.php" class="btn btn-yellow">BUAT PERMINTAAN</a> -->
+                        </div><!-- .grid-child -->
+                    </div><!-- .row -->
+                </form><!-- .general-form -->
+            </div><!-- .bottom -->
+        </div><!-- .content -->
+        
+
+        
     </div><!-- .container -->
 </section><!-- .section -->
 <?php endif; ?>
@@ -265,6 +269,21 @@
 </body>
 <script>
     $(document).ready(function(){
+        $('#fs-date').countdown({
+            date: '<?php echo flashsaleenddate(); ?>', // gmt + 0
+            day: 'DAY',
+            days: 'DAYS',
+            hour: 'HOUR',
+            hours: 'HOURS',
+            minute: 'MIN',
+            minutes: 'MINS',
+            second: 'SEC',
+            seconds: 'SECS'
+        }, function () {
+          //alert('Flash sale ended!');
+          $(".section-flashsale").hide();
+        });
+
         $(".category-section").addClass("home");
         $(document).on('click','.new-all-product-menu .content .main-category li.has-sub a', function(e){
             var getURL = $(this).attr("href");
@@ -286,21 +305,6 @@
         $('.autocomplete-quotation').autocomplete({
             lookup: searchresultsArray,
             appendTo: ".quotation-input-form"
-        });
-
-        $('#fs-date').countdown({
-            date: '<?php echo flashsaleenddate(); ?>', // gmt + 0
-            day: 'DAY',
-            days: 'DAYS',
-            hour: 'HOUR',
-            hours: 'HOURS',
-            minute: 'MIN',
-            minutes: 'MINS',
-            second: 'SEC',
-            seconds: 'SECS'
-        }, function () {
-          //alert('Flash sale ended!');
-          $(".section-flashsale").hide();
         });
     });
 </script>

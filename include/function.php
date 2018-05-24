@@ -5164,6 +5164,18 @@
 		return $end_date;
 	}
 
+	function getrfqheadername(){
+		global $db;
+		$query = $db->query("SELECT `name` FROM `quotation_index` WHERE `publish` = 1");
+		$jumpage = $query->num_rows;
+
+		if($jumpage>0):
+			while($row = $query->fetch_assoc()):
+				echo $row['name'];
+			endwhile;
+		endif;
+	}
+
 	function getrfqimage(){
 		global $db;
 		$query = $db->query("SELECT `name`,`image` FROM `quotation_index` WHERE `publish` = 1");
@@ -5171,7 +5183,19 @@
 
 		if($jumpage>0):
 			while($row = $query->fetch_assoc()):
-				echo '<img src="'.$GLOBALS['UPLOAD_FOLDER'].$row['image'].'" alt="'.$row['name'].'">';
+				echo '<img src="'.$GLOBALS['UPLOAD_FOLDER'].$row['image'].'" alt="FIXCOMART">';
+			endwhile;
+		endif;
+	}
+
+	function getrfqcsimage(){
+		global $db;
+		$query = $db->query("SELECT `name`,`cs_image` FROM `quotation_index` WHERE `publish` = 1");
+		$jumpage = $query->num_rows;
+
+		if($jumpage>0):
+			while($row = $query->fetch_assoc()):
+				echo '<img src="'.$GLOBALS['UPLOAD_FOLDER'].$row['cs_image'].'" alt="'.$row['name'].'" class="cs-img">';
 			endwhile;
 		endif;
 	}
@@ -5196,6 +5220,18 @@
 		if($jumpage>0):
 			while($row = $query->fetch_assoc()):
 				echo $row['description'];
+			endwhile;
+		endif;
+	}
+
+	function getrfqlink(){
+		global $db;
+		$query = $db->query("SELECT `link` FROM `quotation_index` WHERE `publish` = 1");
+		$jumpage = $query->num_rows;
+
+		if($jumpage>0):
+			while($row = $query->fetch_assoc()):
+				echo $row['link'];
 			endwhile;
 		endif;
 	}
